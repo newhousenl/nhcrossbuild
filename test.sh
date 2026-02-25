@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
 
+# Test if the toolchains are able to produce working binaries. Also test if the following features work correctly:
+# - Our own libc++ build (not using libc++ from the system)
+# - TLS initialization
+# - SEH exception handling (Windows)
+# - setjmp/longjmp
+# - pthreads
+# - C++ sized delete operators 
+
 export VERBOSE=1
 export VERBOSE_MAKEFILE=1
 
@@ -13,9 +21,7 @@ cat <<EOF > "$TEST_DIR/main.cpp"
 #include <thread>
 #include <stdio.h>
 
-#if !defined(_MSC_VER)
 #include <pthread.h>
-#endif
 
 #pragma clang diagnostic ignored "-Wint-to-pointer-cast"
 
@@ -23,7 +29,6 @@ cat <<EOF > "$TEST_DIR/main.cpp"
 thread_local int g_tlsCounter = 0;
 thread_local int g_tlsValue = 42;
 
-#if !defined(_MSC_VER)
 // Test pthread directly (not just through std::thread)
 pthread_mutex_t g_testMutex = PTHREAD_MUTEX_INITIALIZER;
 pthread_key_t g_testKey;
@@ -42,7 +47,6 @@ void* pthread_test_func(void* arg) {
     
     return nullptr;
 }
-#endif
 
 #if defined(__APPLE__)
 #include <CoreFoundation/CoreFoundation.h>
@@ -58,7 +62,6 @@ void ShowMessage(const std::string& message) {
 }
 
 int main() {
-#if !defined(_MSC_VER)
     // Initialize pthread resources
     pthread_key_create(&g_testKey, nullptr);
     pthread_mutex_init(&g_testMutex, nullptr);
@@ -67,17 +70,14 @@ int main() {
     pthread_t thread;
     pthread_create(&thread, nullptr, pthread_test_func, nullptr);
     pthread_join(thread, nullptr);
-#endif
 
     std::string message = "Hello, macOS SDK!";
     std::thread worker([&]() { ShowMessage(message); });
     worker.join();
 
-#if !defined(_MSC_VER)
     // Cleanup pthread resources
     pthread_key_delete(g_testKey);
     pthread_mutex_destroy(&g_testMutex);
-#endif
 
     return 0;
 }
@@ -94,7 +94,6 @@ void ShowMessage(const std::string& message) {
 }
 
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
-#if !defined(_MSC_VER)
     // Initialize pthread resources
     pthread_key_create(&g_testKey, nullptr);
     pthread_mutex_init(&g_testMutex, nullptr);
@@ -103,7 +102,6 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
     pthread_t thread;
     pthread_create(&thread, nullptr, pthread_test_func, nullptr);
     pthread_join(thread, nullptr);
-#endif
 
     ShowMessage("WinMain");
 
@@ -225,7 +223,7 @@ int main() {
 }
 EOF
 
-# Create a setjmp/longjmp test (reproduces the libjpeg-turbo issue)
+# Create a setjmp/longjmp test
 cat <<'EOF' > "$TEST_DIR/setjmp_test.c"
 #include <setjmp.h>
 #include <stdio.h>
