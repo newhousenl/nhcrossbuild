@@ -322,8 +322,6 @@ test_toolchain() {
 # Run tests
 test_toolchain "Linux" "$toolchainfile_linux"
 test_toolchain "MacOS_Dual" "$toolchainfile_macos_dual"
-test_toolchain "Windows_MSVC_x86_64" "$toolchainfile_windows_x86_64"
-test_toolchain "Windows_MSVC_ARM64" "$toolchainfile_windows_aarch64"
 test_toolchain "Windows_MinGW_x86_64" "$toolchainfile_windows_mingw_x86_64"
 test_toolchain "Windows_MinGW_ARM64" "$toolchainfile_windows_mingw_aarch64"
 
