@@ -1,0 +1,16 @@
+--- a/libunwind/src/CMakeLists.txt
++++ b/libunwind/src/CMakeLists.txt
+@@ -79,11 +79,11 @@ else()
+ endif()
+ 
+ if (NOT APPLE)
+-  add_library_flags_if(LIBUNWIND_HAS_DL_LIB dl)
++#  add_library_flags_if(LIBUNWIND_HAS_DL_LIB dl)
+ endif()
+ 
+ if (LIBUNWIND_ENABLE_THREADS AND NOT APPLE)
+-    add_library_flags_if(LIBUNWIND_HAS_PTHREAD_LIB pthread)
++#    add_library_flags_if(LIBUNWIND_HAS_PTHREAD_LIB pthread)
+ endif()
+ 
+ if (LIBUNWIND_ENABLE_THREADS)

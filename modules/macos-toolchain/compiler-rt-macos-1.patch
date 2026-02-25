@@ -1,0 +1,14 @@
+--- a./cmake/builtin-config-ix.cmake
++++ b./cmake/builtin-config-ix.cmake
+@@ -129,7 +129,9 @@ if(APPLE)
+   set(DARWIN_osx_BUILTIN_ALL_POSSIBLE_ARCHS ${X86} ${X86_64})
+   # Add support for arm64 macOS if available in SDK.
+   foreach(arch ${ARM64})
+-    sdk_has_arch_support(${DARWIN_osx_SYSROOT} macosx ${arch} MACOS_ARM_SUPPORT)
++    # Joost: sdk_has_arch_support fails when cross building, because we don't have PListBuddy
++    # sdk_has_arch_support(${DARWIN_osx_SYSROOT} macosx ${arch} MACOS_ARM_SUPPORT)
++    set(MACOS_ARM_SUPPORT On)
+     if (MACOS_ARM_SUPPORT)
+      list(APPEND DARWIN_osx_BUILTIN_ALL_POSSIBLE_ARCHS ${arch})
+     endif()
+-- 

@@ -1,0 +1,121 @@
+# this is not used, but it might be a better alternative to the prebuilt  "https://github.com/joostn/debian10/archive/refs/tags/1.0.tar.gz";
+
+
+#The @ptgui_13.3/PTGui executable is built against the following libraries:
+
+   * GTK 3 & Related: libgtk-3, libgdk-3, libatk-1.0, libgdk_pixbuf-2.0, libgio-2.0, libglib-2.0, libgobject-2.0, libpango-1.0, libpangocairo-1.0, libcairo,
+     libcairo-gobject, libharfbuzz
+   * X11: libX11, libXext, libXtst, libICE, libSM
+   * Wayland: libwayland-client, libwayland-egl, libwayland-server, libwayland-cursor
+   * Graphics (GL/EGL/OpenCL): libGL, libGLU, libEGL, libOpenCL
+   * System/Core: libc, libm, libdl, libpthread, librt, libstdc++, libgcc_s
+   * Other: libexpat, libxkbcommon, libdbus-1
+
+
+{
+  description = "PTGui Portable Build Environment (Debian 10 Sysroot)";
+
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    flake-utils.url = "github:numtide/flake-utils";
+  };
+
+  outputs = { self, nixpkgs, flake-utils }:
+    flake-utils.lib.eachDefaultSystem (system:
+      let
+        pkgs = nixpkgs.legacyPackages.${system};
+
+        # 1. Define the Debian 10 (Buster) packages we need.
+        #    We need both the shared libraries (for linking) and -dev (for headers).
+        #    NOTE: In a real setup, you would use a tool to fetch these URLs/hashes automatically.
+        debPackages = [
+          # Libc / Core
+          {
+            name = "libc6-dev";
+            # Changed to archive.debian.org which permanently stores EOL releases
+            url = "https://archive.debian.org/debian/pool/main/g/glibc/libc6-dev_2.28-10+deb10u1_amd64.deb";
+            sha256 = "sha256-placeholder-hash-here"; 
+          }
+          {
+            name = "libc6";
+            url = "https://archive.debian.org/debian/pool/main/g/glibc/libc6_2.28-10+deb10u1_amd64.deb";
+            sha256 = "sha256-placeholder-hash-here";
+          }
+          {
+            name = "linux-libc-dev";
+            url = "https://archive.debian.org/debian/pool/main/l/linux/linux-libc-dev_4.19.249-2_amd64.deb";
+            sha256 = "sha256-placeholder-hash-here";
+          }
+          # GTK3
+          {
+            name = "libgtk-3-dev";
+            url = "https://archive.debian.org/debian/pool/main/g/gtk+3.0/libgtk-3-dev_3.24.5-1_amd64.deb";
+            sha256 = "sha256-placeholder-hash-here";
+          }
+          {
+            name = "libgtk-3-0";
+            url = "https://archive.debian.org/debian/pool/main/g/gtk+3.0/libgtk-3-0_3.24.5-1_amd64.deb";
+            sha256 = "sha256-placeholder-hash-here";
+          }
+          # ... Add X11, Wayland, GL, Pango, Cairo, Glib packages here ...
+        ];
+
+        # 2. Build the Sysroot
+        #    This derivation unpacks all debs into a single directory structure.
+        sysroot = pkgs.stdenv.mkDerivation {
+          name = "debian-buster-sysroot";
+          dontUnpack = true;
+          buildInputs = [ pkgs.dpkg ];
+          
+          # Pass the list of debs to the builder
+          debs = builtins.toJSON debPackages;
+
+          buildPhase = ''
+            mkdir -p $out
+            
+            # Function to fetch and unpack would go here in a real script, 
+            # or we fetch them as fetchurl inputs and link them.
+            # For this simplified example, we assume fetchurl happened upstream or we mock it.
+            
+            echo "Unpacking sysroot..."
+            # In a real implementation, you'd iterate over the fetched files:
+            # dpkg -x $deb $out
+            
+            # Fix absolute symlinks (Debian debs often have absolute links to /lib, etc.)
+            # find $out -type l -exec ...
+          '';
+        };
+
+      in {
+        devShells.default = pkgs.mkShell {
+          name = "ptgui-build-env";
+          
+          nativeBuildInputs = [
+            pkgs.pkg-config
+            pkgs.cmake
+            pkgs.ninja
+            # We use the standard Nix compiler, but wrapper flags will point it to sysroot
+          ];
+
+          # 3. Configure the Compiler
+          #    We force the compiler to ignore standard include paths and use our sysroot.
+          shellHook = ''
+            export SYSROOT="${sysroot}"
+            
+            # Point pkg-config to the sysroot's .pc files
+            export PKG_CONFIG_DIR=
+            export PKG_CONFIG_LIBDIR="$SYSROOT/usr/lib/x86_64-linux-gnu/pkgconfig:$SYSROOT/usr/share/pkgconfig"
+            export PKG_CONFIG_SYSROOT_DIR="$SYSROOT"
+
+            # Flags for the compiler to look exclusively in the sysroot
+            export CFLAGS="--sysroot=$SYSROOT -isystem $SYSROOT/usr/include -isystem $SYSROOT/usr/include/x86_64-linux-gnu"
+            export CXXFLAGS="--sysroot=$SYSROOT -isystem $SYSROOT/usr/include -isystem $SYSROOT/usr/include/x86_64-linux-gnu"
+            export LDFLAGS="--sysroot=$SYSROOT -L$SYSROOT/usr/lib/x86_64-linux-gnu"
+
+            echo "Environment ready."
+            echo "Compiler configured for Debian 10 sysroot at: $SYSROOT"
+          '';
+        };
+      }
+    );
+}
