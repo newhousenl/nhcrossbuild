@@ -42,6 +42,12 @@ Once inside the environment (a bash shell), you can build your own CMake project
 cmake -DCMAKE_TOOLCHAIN_FILE=$toolchainfile_xxx ..
 ```
 
+## Example
+
+A complete example of a cross-platform application using this toolchain can be found in the [example/](example/) directory. It uses the [wxWidgets](https://www.wxwidgets.org/) library to create a simple GUI application that runs on Linux, macOS, and Windows.
+
+See the [example/README.md](example/README.md) for detailed instructions on how to build and run the example.
+
 ### Available Toolchain Files
 
 - **Linux x86_64**: `$toolchainfile_linux`
