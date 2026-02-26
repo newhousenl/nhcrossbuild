@@ -69,7 +69,7 @@ This build system leverages several 3rd party projects to enable cross-platform 
 - **Linux Support**:
   - **Debian 10 (Buster)**: Used for the base Linux sysroot to ensure compatibility.
 - **macOS SDK**:
-  - **[joseluisq/macos-sdks](https://github.com/joseluisq/macos-sdks)**: Provides the macOS SDK for cross-compilation.
+  - **[joseluisq/macosx-sdks](https://github.com/joseluisq/macosx-sdks)**: Provides the macOS SDK for cross-compilation.
 - **Other Utilities**:
   - **[apple-codesign (rcodesign)](https://github.com/indygreg/apple-platform-rs)**: Used for macOS binary signing.
 
