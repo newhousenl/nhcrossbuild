@@ -37,6 +37,11 @@ let
       sha256 = "sha256-z+x8SaByiXW2aZyXWMwsNqXaoE2U4H5wP8e89rOIa0Q=";
     })
     (fetchDebPackage {
+      name = "opencl-c-headers";
+      url = "https://archive.debian.org/debian/pool/main/k/khronos-opencl-headers/opencl-c-headers_2.2~2019.01.17-g49f07d3-1_all.deb";
+      sha256 = "sha256-lYPQnZrbPucncKDy8JrI/IEbIkM5mL4gPBRRd4wh0kA=";
+    })
+    (fetchDebPackage {
       name = "libgtk-3-0";
       url = "https://archive.debian.org/debian/pool/main/g/gtk+3.0/libgtk-3-0_3.24.5-1_amd64.deb";
       sha256 = "sha256-5lLgSwTMimfCTFdzGAp/3WWmz8VaJ3dyLoCCWlajNyk=";
