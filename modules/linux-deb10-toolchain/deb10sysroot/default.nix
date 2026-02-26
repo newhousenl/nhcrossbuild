@@ -157,6 +157,61 @@ let
       sha256 = "sha256-QA+hWo2jaTWTKK1BrIk8TLUWhlFO5qlFbbv9EuiDbsM=";
     })
     (fetchDebPackage {
+      name = "libglvnd0";
+      url = "https://archive.debian.org/debian/pool/main/libg/libglvnd/libglvnd0_1.1.0-1_amd64.deb";
+      sha256 = "sha256-QkezFolknxLXQp8zfQOM5zy4OU16OiXqxGZTagCPAMY=";
+    })
+    (fetchDebPackage {
+      name = "libglvnd-core-dev";
+      url = "https://archive.debian.org/debian/pool/main/libg/libglvnd/libglvnd-core-dev_1.1.0-1_amd64.deb";
+      sha256 = "sha256-K66Uc+Jwk2qHvE13Vt+0BkPEjHdSDZdDsOHtkvZbpSo=";
+    })
+    (fetchDebPackage {
+      name = "libglvnd-dev";
+      url = "https://archive.debian.org/debian/pool/main/libg/libglvnd/libglvnd-dev_1.1.0-1_amd64.deb";
+      sha256 = "sha256-YDgLfRkZlgtFP2YVXe+zQYA622tWGYhMlp36hf0FD8A=";
+    })
+    (fetchDebPackage {
+      name = "libgl1";
+      url = "https://archive.debian.org/debian/pool/main/libg/libglvnd/libgl1_1.1.0-1_amd64.deb";
+      sha256 = "sha256-eUIN0M21udq50yZsjAUgNsk+NjcI4nc4hxaS4OFj5aI=";
+    })
+    (fetchDebPackage {
+      name = "libegl1";
+      url = "https://archive.debian.org/debian/pool/main/libg/libglvnd/libegl1_1.1.0-1_amd64.deb";
+      sha256 = "sha256-pdVrxPwhqH+VtFypZlq65TkICbyNLY/To8P8Fe7rGRg=";
+    })
+    (fetchDebPackage {
+      name = "libgles1";
+      url = "https://archive.debian.org/debian/pool/main/libg/libglvnd/libgles1_1.1.0-1_amd64.deb";
+      sha256 = "sha256-zF4eDysPH4K188ea52hw4QXxMnhUke/iH9LW/QgOJbU=";
+    })
+    (fetchDebPackage {
+      name = "libgles2";
+      url = "https://archive.debian.org/debian/pool/main/libg/libglvnd/libgles2_1.1.0-1_amd64.deb";
+      sha256 = "sha256-WOn/ECbYH8OJlLEod/bDg+OfWZvZj1yOXGv1cW2oGkU=";
+    })
+    (fetchDebPackage {
+      name = "libglx0";
+      url = "https://archive.debian.org/debian/pool/main/libg/libglvnd/libglx0_1.1.0-1_amd64.deb";
+      sha256 = "sha256-zTcKAEwN3sITs0Qjlj50yYQg8I1Fwd7I9DVf9sDp2QU=";
+    })
+    (fetchDebPackage {
+      name = "libopengl0";
+      url = "https://archive.debian.org/debian/pool/main/libg/libglvnd/libopengl0_1.1.0-1_amd64.deb";
+      sha256 = "sha256-UtslI/kuKZwAAs9z0iXGK61QpU0uiBdBdvYxC0iztnw=";
+    })
+    (fetchDebPackage {
+      name = "libglx-mesa0";
+      url = "https://archive.debian.org/debian/pool/main/m/mesa/libglx-mesa0_18.3.6-2+deb10u1_amd64.deb";
+      sha256 = "sha256-DSVHXXXPhwOHpwr7KAmqecM8fQX+MzvJsuHEolhInOc=";
+    })
+    (fetchDebPackage {
+      name = "libegl-mesa0";
+      url = "https://archive.debian.org/debian/pool/main/m/mesa/libegl-mesa0_18.3.6-2+deb10u1_amd64.deb";
+      sha256 = "sha256-zf0RjQ3LX8wO6zpXx8YwrMUWRDKKZ8D+Brqvh/cBUns=";
+    })
+    (fetchDebPackage {
       name = "libxkbcommon0";
       url = "https://archive.debian.org/debian/pool/main/libx/libxkbcommon/libxkbcommon0_0.8.2-1_amd64.deb";
       sha256 = "sha256-qTcp8dMlWYrZxqf/4AxGT74nYYGjoSSFUEHB4wMXXww=";
