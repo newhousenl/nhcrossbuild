@@ -10,8 +10,8 @@
       makeDevShell =
         {
           system,
-          #nixpkgs,
           extraToolchainContent ? "",
+          nativeBuildInputs ? [],
         }:
         let
           pkgs = import nixpkgs {
@@ -74,8 +74,8 @@
         pkgs.stdenvNoCC.mkDerivation {
           name = "nhcrossbuild";
           phases = [ ];
-          nativeBuildInputs =
-            with pkgs;
+          nativeBuildInputs = with pkgs;
+            nativeBuildInputs ++
             [
               # nasm
               # go
