@@ -11,7 +11,7 @@
         {
           system,
           extraToolchainContent ? "",
-          nativeBuildInputs ? [],
+          nativeBuildInputs ? [ ],
         }:
         let
           pkgs = import nixpkgs {
@@ -74,69 +74,19 @@
         pkgs.stdenvNoCC.mkDerivation {
           name = "nhcrossbuild";
           phases = [ ];
-          nativeBuildInputs = with pkgs;
-            nativeBuildInputs ++
-            [
-              # nasm
-              # go
-              # (perl.withPackages(ps: [ ps.PerlLanguageServer ps.ImageExifTool ]))
-
-              python3
+          nativeBuildInputs =
+            with pkgs;
+            nativeBuildInputs
+            ++ [
               cmake
-              lldb
               llvmPackagesToUse.clang-tools
               ninja
-              git
-              less
-              which
               pkg-config
               bashInteractive # needed for bash shell in vs code
             ]
             ++ toolchains_windows_mingw.x86_64.nativeBuildInputs
             ++ toolchain_macos.nativeBuildInputs
-            ++ toolchain_linux.nativeBuildInputs
-            ++ lib.optional (!stdenvNoCC.isDarwin) [
-              # # for profiling:
-              # valgrind
-              # kdePackages.kcachegrind
-              # pkgs.gperftools
-              # graphviz  # required by pprof --web
-              # llvmPackagesToUse.bintools  # for objdump # required by pprof-symbolize
-
-              # # requirecd by gtk3:
-              # libsysprof-capture
-              # pcre2
-              # libselinux
-              # cacert
-              # ocl-icd
-              gtk3
-              dbus
-              glib
-              util-linux
-              libGLU
-
-              libxkbcommon
-              xorg.libX11.dev
-              xorg.libX11
-              xorg.libXcursor
-              xorg.libXrandr
-              xorg.libICE
-              xorg.libSM
-              xorg.libXext
-              xorg.libXtst
-              udev
-              alsa-lib
-              egl-wayland
-              libGL
-              eglexternalplatform
-              gdk-pixbuf
-              cairo
-              harfbuzz
-              pango
-              atk
-              wayland
-              adwaita-icon-theme
-            ];
+            ++ toolchain_linux.nativeBuildInputs;
 
           toolchainfile_macos_single = pkgs.writeText "mactoolchain_single.cmake" (
             toolchain_macos.toolchaintxt_single + extraContent
@@ -176,7 +126,7 @@
           ]
           (system: {
             default = makeDevShell {
-              inherit system ; #nixpkgs;
+              inherit system; # nixpkgs;
             };
           });
     };
