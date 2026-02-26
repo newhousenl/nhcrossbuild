@@ -43,4 +43,4 @@ The application is signed with an ad-hoc signature. Run it by right clicking and
 
 ### Windows
 
-The build process produces separate executables for x86_64 and ARM64 in `assets/winx64/bin/HelloWorld.exe` and `assets/winarm/bin/HelloWorld.exe`. These can be run as-is on any Windows 10 or later system.
+The build process produces separate executables for x86_64 and ARM64 in `assets/winx64/HelloWorld.exe` and `assets/winarm/HelloWorld.exe`. These can be run as-is on any Windows 10 or later system.
