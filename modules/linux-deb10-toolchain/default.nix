@@ -56,11 +56,6 @@ in
     ${cmake-linux-toolchaintxt-without-libcpp}
     set(CMAKE_EXE_LINKER_FLAGS "''${CMAKE_EXE_LINKER_FLAGS}  -L ${libcpplinux}/lib -Wl,-Bstatic -lc++ -lc++abi -Wl,-Bdynamic")
     set(CMAKE_CXX_FLAGS "-nostdinc++ -isystem ${libcpplinux}/include/c++/v1 ''${CMAKE_CXX_FLAGS}")
-    if(EXISTS $ENV{HOME}/ptgui_remoteclang)
-      set(CMAKE_C_COMPILER_LAUNCHER $ENV{HOME}/ptgui_remoteclang)
-      set(CMAKE_CXX_COMPILER_LAUNCHER $ENV{HOME}/ptgui_remoteclang)
-    endif()
-    message(STATUS "CMAKE_C_COMPILER_LAUNCHER: ''${CMAKE_C_COMPILER_LAUNCHER}")
   '';
   nativeBuildInputs = [ ];
 }
