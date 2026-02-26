@@ -21,7 +21,6 @@
               allowBroken = true; # nsis-3.11 is broken on Darwin
             };
           };
-          extraContent = if extraToolchainContent == null then "" else extraToolchainContent;
           llvmversion = "21";
           llvmfullversion = "21.1.8";
           llvmhash = "sha256-pgd8g9Yfvp7abjCCKSmIn1smAROjqtfZaJkaUkBSKW0=";
@@ -80,6 +79,7 @@
             ++ [
               cmake
               llvmPackagesToUse.clang-tools
+              llvmPackagesToUse.bintools
               ninja
               pkg-config
               bashInteractive # needed for bash shell in vs code
@@ -89,19 +89,19 @@
             ++ toolchain_linux.nativeBuildInputs;
 
           toolchainfile_macos_single = pkgs.writeText "mactoolchain_single.cmake" (
-            toolchain_macos.toolchaintxt_single + extraContent
+            toolchain_macos.toolchaintxt_single + extraToolchainContent
           );
           toolchainfile_macos_dual = pkgs.writeText "mactoolchain_dual.cmake" (
-            toolchain_macos.toolchaintxt_dual + extraContent
+            toolchain_macos.toolchaintxt_dual + extraToolchainContent
           );
           toolchainfile_linux = pkgs.writeText "linuxtoolchain.cmake" (
-            toolchain_linux.toolchaintxt + extraContent
+            toolchain_linux.toolchaintxt + extraToolchainContent
           );
           toolchainfile_windows_mingw_x86_64 = pkgs.writeText "windows_mingw_x86_64toolchain.cmake" (
-            toolchains_windows_mingw.x86_64.toolchaintxt + extraContent
+            toolchains_windows_mingw.x86_64.toolchaintxt + extraToolchainContent
           );
           toolchainfile_windows_mingw_aarch64 = pkgs.writeText "windows_mingw_aarch64toolchain.cmake" (
-            toolchains_windows_mingw.aarch64.toolchaintxt + extraContent
+            toolchains_windows_mingw.aarch64.toolchaintxt + extraToolchainContent
           );
           shellHook = ''
             echo "Create a gc root (to prevent garbage collection of the toolchain) with the following command:"
