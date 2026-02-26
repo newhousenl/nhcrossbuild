@@ -10,7 +10,7 @@
       makeDevShell =
         {
           system,
-          nixpkgs,
+          #nixpkgs,
           extraToolchainContent ? "",
         }:
         let
@@ -176,7 +176,7 @@
           ]
           (system: {
             default = makeDevShell {
-              inherit system nixpkgs;
+              inherit system ; #nixpkgs;
             };
           });
     };

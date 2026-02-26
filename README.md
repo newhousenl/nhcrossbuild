@@ -4,7 +4,7 @@ A cross-platform build system using CMake, Clang, and libc++.
 
 When building a cross platform C++ application, we face several challenges: the standard toolchains on each platform are different: they use different compilers (msvc, gcc, clang) and different c++ standard libraries (libc++, libstdc++ and msvc's STL). 
 
-On macOS the c++ standard library is a dylib, it's version is tied to the target macOS version. So if we want our application to run older macOS versions, we cannot use newer STL features.
+On macOS the c++ standard library is a dylib, its version is tied to the target macOS version. So if we want our application to run older macOS versions, we cannot use newer STL features.
 
 On Linux, distributing binary applications is challenging: we cannot statically link against glibc, but dynamically linking against the system's glibc makes the executable incompatible with older linux distributions. Statically linking musl is an option for CLI tools, but not for GUI applications because we must dynamically link against GTK and other libraries which themselves depend on glibc. The usual advise is to 'build your app on an old linux distribution', but this is  cumberome. It also limits us to older compiler and c++ std library versions, lacking support for modern c++ features.
 
