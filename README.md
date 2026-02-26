@@ -2,14 +2,25 @@
 
 A cross-platform build system using CMake, Clang, and libc++.
 
-This project provides a Nix-based development environment that simplifies cross-compiling for various platforms. Build for 3 platforms from a single host. Uses the same clang compiler on all platforms and link statically against the same modern version of libc++. You only need to pass the -DCMAKE_TOOLCHAIN_FILE option to CMake to build for a different platform.
+When building a cross platform C++ application, we face several challenges: the standard toolchains on each platform are different: they use different compilers (msvc, gcc, clang) and different c++ standard libraries (libc++, libstdc++ and msvc's STL). 
+
+On macOS the c++ standard library is a dylib, it's version is tied to the target macOS version. So if we want our application to run older macOS versions, we cannot use newer STL features.
+
+On Linux, distributing binary applications is challenging: we cannot statically link against glibc, but dynamically linking against the system's glibc makes the executable incompatible with older linux distributions. Statically linking musl is an option for CLI tools, but not for GUI applications because we must dynamically link against GTK and other libraries which themselves depend on glibc. The usual advise is to 'build your app on an old linux distribution', but this is  cumberome. It also limits us to older compiler and c++ std library versions, lacking support for modern c++ features.
+
+This project solves all these problems and provides a Nix-based development environment that simplifies cross-compiling for various platforms. For all platforms we have a modern clang compiler and we statically link against the same modern version of libc++. For linux, a sysroot is built from the debian 10 archives, providing the libraries our application is dynamically linked against.
+
+By using nix we can build for all 3 platforms from any of them. You only need to pass the -DCMAKE_TOOLCHAIN_FILE option to CMake to target a specific platform.
+
+## Battle tested in production
+This build system is used to build [PTGui](https://ptgui.com/), a commercial panorama stitching software with over 25 years of development and a large user base.
 
 ## Supported Platforms
 
 The build system can produce:
-- **Linux**: x86_64 binary, linked against glibc version 2.28. This will generally run in most modern Linux distributions (Debian 10, fedora 34, Ubuntu 20.04, etc.)
-- **macOS**: Fat bundle (Universal binaries)
-- **Windows**: separate x86_64 and ARM64 executables
+- **Linux**: x86_64 binary, linked against glibc version 2.28. This will run in modern glibc-based Linux distributions (Debian 10, fedora 34, Ubuntu 20.04, etc.)
+- **macOS**: Fat bundle (Universal binaries), built against the macOS 10.15 SDK.
+- **Windows**: separate x86_64 and ARM64 executables, built against the UCRT. The ucrt is included in Windows 10 and later, no need to worry about the MSVC redistributable or other dlls.
 
 ## Usage
 
@@ -60,4 +71,4 @@ This build system leverages several 3rd party projects to enable cross-platform 
 
 This project is licensed under the **0BSD License (Zero-Clause BSD)** - see the [LICENSE](LICENSE) file for details. This license allows for commercial use, modification, and distribution without any attribution requirement.
 
-**Note:** This license applies only to the build scripts and configuration files in this repository. The 3rd party components mentioned above are subject to their own respective licenses.
+Note that the 3rd party components mentioned above are subject to their own respective licenses.
