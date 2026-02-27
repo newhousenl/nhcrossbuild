@@ -6,21 +6,14 @@ When building a cross platform C++ application, we face several challenges: the 
 
 On macOS the c++ standard library is a dylib, its version is tied to the target macOS version. So if we want our application to run older macOS versions, we cannot use newer STL features.
 
-On Linux, distributing binary applications is challenging: we cannot statically link against glibc, but dynamically linking against the system's glibc makes the executable incompatible with older linux distributions. Statically linking musl is an option for CLI tools, but not for GUI applications because we must dynamically link against GTK and other libraries which themselves depend on glibc. The usual advise is to 'build your app on an old linux distribution', but this is  cumbersome. It also limits us to older compiler and c++ std library versions, lacking support for modern c++ features.
+On Linux, distributing binary applications is challenging: glibc does not support static linking, but dynamically linking against the system's glibc makes the executable incompatible with older linux distributions. Statically linking musl is an option for CLI tools, but not for GUI applications because we must dynamically link against GTK and other libraries which themselves depend on glibc. The usual advise is to 'build your app on an old linux distribution', but this is cumbersome. It also limits us to older compiler and c++ std library versions, lacking support for modern c++ features.
 
-This project solves all these problems and provides a Nix-based development environment that simplifies cross-compiling for various platforms. For all platforms we have a modern clang compiler and we statically link against the same modern version of libc++. For linux, a sysroot is built from the debian 10 archives, providing the libraries our application is dynamically linked against.
+This project solves all these problems and provides a Nix-based development environment that simplifies cross-compiling for various platforms. For all platforms we have a modern clang compiler and we statically link the same modern version of libc++. For linux, a sysroot is built from the debian 10 archives, providing the libraries our application is dynamically linked against.
 
 By using nix we can build for all 3 platforms from any of them. You only need to pass the -DCMAKE_TOOLCHAIN_FILE option to CMake to target a specific platform.
 
 ## Battle tested in production
 This build system is used to build [PTGui](https://ptgui.com/), a commercial panorama stitching software with over 25 years of development and a large user base.
-
-## Supported Platforms
-
-The build system can produce:
-- **Linux**: x86_64 binary, linked against glibc version 2.28. This will run in modern glibc-based Linux distributions (Debian 10, fedora 34, Ubuntu 20.04, etc.)
-- **macOS**: Fat bundle (Universal binaries), built against the macOS 10.15 SDK.
-- **Windows**: separate x86_64 and ARM64 executables, built against the UCRT. The ucrt is included in Windows 10 and later, no need to worry about the MSVC redistributable or other dlls.
 
 ## Usage
 
@@ -42,19 +35,31 @@ Once inside the environment (a bash shell), you can build your own CMake project
 cmake -DCMAKE_TOOLCHAIN_FILE=$toolchainfile_xxx ..
 ```
 
+## Supported Platforms
+
+The build system can produce:
+- **Linux**: x86_64 binary, linked against glibc version 2.28. This will run in modern glibc-based Linux distributions (Debian 10, fedora 34, Ubuntu 20.04, etc.)
+```bash
+cmake -DCMAKE_TOOLCHAIN_FILE=$toolchainfile_linux ...
+```
+- **macOS**: Fat bundle (Universal binaries), built against the macOS 10.15 SDK.
+```bash
+cmake -DCMAKE_TOOLCHAIN_FILE=$toolchainfile_macos_dual ...
+# universal binary
+cmake -DCMAKE_TOOLCHAIN_FILE=$toolchainfile_macos_single ... 
+# current architecture only
+```
+- **Windows**: separate x86_64 and ARM64 executables, built against the UCRT. The ucrt is included in Windows 10 and later, no need to worry about the MSVC redistributable or other dlls.
+```bash
+cmake -DCMAKE_TOOLCHAIN_FILE=$toolchainfile_windows_mingw_x86_64 ...
+cmake -DCMAKE_TOOLCHAIN_FILE=$toolchainfile_windows_mingw_aarch64 ...
+```
+
 ## Example
 
 A complete example of a cross-platform application using this toolchain can be found in the [example/](example/) directory. It uses the [wxWidgets](https://www.wxwidgets.org/) library to create a simple GUI application that runs on Linux, macOS, and Windows.
 
 See the [example/README.md](example/README.md) for detailed instructions on how to build and run the example.
-
-### Available Toolchain Files
-
-- **Linux x86_64**: `$toolchainfile_linux`
-- **macOS Fat Bundle**: `$toolchainfile_macos_dual`
-- **macOS Current architecture only**: `$toolchainfile_macos_single`
-- **Windows x86_64**: `$toolchainfile_windows_mingw_x86_64`
-- **Windows ARM64**: `$toolchainfile_windows_mingw_aarch64`
 
 ## Acknowledgments and 3rd Party Components
 
