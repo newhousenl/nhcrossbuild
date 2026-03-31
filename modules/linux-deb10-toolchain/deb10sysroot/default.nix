@@ -237,6 +237,16 @@ let
       sha256 = "sha256-tzsDteoy0EVmQEhrlgJZNjbiWpNmeCtOLgwYPY2wyfk=";
     })
     (fetchDebPackage {
+      name = "libx11-xcb1";
+      url = "https://archive.debian.org/debian/pool/main/libx/libx11/libx11-xcb1_1.6.7-1+deb10u2_amd64.deb";
+      sha256 = "sha256-hr+9QrOO961zyooQzWRF3DhFfjYcNaxXot2jp0FH5/8=";
+    })
+    (fetchDebPackage {
+      name = "libx11-xcb-dev";
+      url = "https://archive.debian.org/debian/pool/main/libx/libx11/libx11-xcb-dev_1.6.7-1+deb10u2_amd64.deb";
+      sha256 = "sha256-yqsTT5BnnsDe81yk8K0AjdfuaBE/eEz0vb+3EOpzQHk=";
+    })
+    (fetchDebPackage {
       name = "libxcursor1";
       url = "https://archive.debian.org/debian/pool/main/libx/libxcursor/libxcursor1_1.1.15-2_amd64.deb";
       sha256 = "sha256-XFw8UCCz6WOvz0WvIa2MDBQ3WuNfbGSaBaInkFA78kw=";
