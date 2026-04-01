@@ -7,6 +7,7 @@
   outputs =
     { self, nixpkgs }:
     let
+      #windowssdk = pkgs.callPackage ./modules/windowssdk/default.nix { };
       makeDevShell =
         {
           system,
@@ -69,7 +70,6 @@
                 ;
             };
           };
-          windowssdk = pkgs.callPackage ./modules/windowssdk/default.nix { };
         in
         pkgs.stdenvNoCC.mkDerivation {
           name = "nhcrossbuild";
@@ -104,7 +104,7 @@
           toolchainfile_windows_mingw_aarch64 = pkgs.writeText "windows_mingw_aarch64toolchain.cmake" (
             toolchains_windows_mingw.aarch64.toolchaintxt + extraToolchainContent
           );
-          inherit windowssdk;
+          #inherit windowssdk;
           shellHook = ''
             echo "Create a gc root (to prevent garbage collection of the toolchain) with the following command:"
             echo "nix build .#devShells.${system}.default.inputDerivation -o ./gcroot"
