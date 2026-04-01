@@ -347,7 +347,7 @@ in {
   toolchaintxt = makeToolchainConfig {
     extraCxxFlags = " -fsized-deallocation -nostdinc++ -isystem ${libcppmingw}/include/c++/v1 -I${windowssdk}/include/um -I${windowssdk}/include/shared -I${windowssdk}/include/winrt";
     extraLinkerFlags = " -rtlib=compiler-rt -nostdlib++  -Wl,--whole-archive -lclang_rt.builtins-${targetparams.builtinsSuffix} -Wl,--no-whole-archive -lc++ -lc++abi -lunwind -lwinpthread -lmingwex";
-    standardLibraryPaths = " -L${clang_with_compilerrt}/lib/clang/${llvmversion}/lib/${normalizedtriple} -L${libcppmingw}/lib";
+    standardLibraryPaths = " -L${clang_with_compilerrt}/lib/clang/${llvmversion}/lib/${normalizedtriple} -L${libcppmingw}/lib -L${windowssdk}/lib/um/${targetparams.libdir} -L${windowssdk}/lib/shared/${targetparams.libdir}";
     resourceDir = "${clang_with_compilerrt}/lib/clang/${llvmversion}";
   } + additionaltoolchainconfig;
 
