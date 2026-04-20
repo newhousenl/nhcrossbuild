@@ -10,16 +10,6 @@
     "sha256": "sha256-6TwqPdvzS3bZs097Tw7nPY3Nb5/h7aIMIJM29oAmp4E="
   },
   {
-    "name": "gcc-8",
-    "url": "https://archive.debian.org/debian/pool/main/g/gcc-8/gcc-8_8.3.0-6_arm64.deb",
-    "sha256": "sha256-6+vT7kHHumO7JS5PkY5SWS/TrLstis+S9wtRe7AIJBA="
-  },
-  {
-    "name": "gcc-8-base",
-    "url": "https://archive.debian.org/debian/pool/main/g/gcc-8/gcc-8-base_8.3.0-6_arm64.deb",
-    "sha256": "sha256-QUVoYOkpvuyOrVKCz2iR24/iE6+G1Gln53+bE7HES/I="
-  },
-  {
     "name": "gettext",
     "url": "https://archive.debian.org/debian/pool/main/g/gettext/gettext_0.19.8.1-9_arm64.deb",
     "sha256": "sha256-eK3+1WFdmo+VsF4nsNXHM2wzkr14P1fWw+zT+eURCXM="
@@ -235,11 +225,6 @@
     "sha256": "sha256-bIMFuyTd9FlCfpd5Vacw67MDfBCtlRC6TJIjr+PU+WI="
   },
   {
-    "name": "libffi6",
-    "url": "https://archive.debian.org/debian/pool/main/libf/libffi/libffi6_3.2.1-9_arm64.deb",
-    "sha256": "sha256-xff0FY3GghvzfdRM4P5DmbV5jUrn6CGthbYwWaKzHA8="
-  },
-  {
     "name": "libffi-dev",
     "url": "https://archive.debian.org/debian/pool/main/libf/libffi/libffi-dev_3.2.1-9_arm64.deb",
     "sha256": "sha256-cZRTVEpTODR7WAxNLhEi5vHFCz3cOyB1Ly1xBv5tLTk="
@@ -250,11 +235,6 @@
     "sha256": "sha256-deY5AP5Aq55dHh9YRYxAMw+c/5gFuSdJxE1UsawdqKQ="
   },
   {
-    "name": "libfontconfig1-dev",
-    "url": "https://archive.debian.org/debian/pool/main/f/fontconfig/libfontconfig1-dev_2.13.1-2_arm64.deb",
-    "sha256": "sha256-3jg3jbVLsIt8NzPHHqa+EiWTuZRUTrLCe4mIoo0szIg="
-  },
-  {
     "name": "libfreetype6",
     "url": "https://archive.debian.org/debian/pool/main/f/freetype/libfreetype6_2.9.1-3+deb10u3_arm64.deb",
     "sha256": "sha256-pGnlI3T5JP6k+SYsX9+dTkn7/z7taKz2+bKYUQ1YqjA="
@@ -263,16 +243,6 @@
     "name": "libfreetype6-dev",
     "url": "https://archive.debian.org/debian/pool/main/f/freetype/libfreetype6-dev_2.9.1-3+deb10u3_arm64.deb",
     "sha256": "sha256-YVY51eCItJOER9HcRshdtJ8lJK7Drg0vnHgH4W0dfCM="
-  },
-  {
-    "name": "libgcc-8-dev",
-    "url": "https://archive.debian.org/debian/pool/main/g/gcc-8/libgcc-8-dev_8.3.0-6_arm64.deb",
-    "sha256": "sha256-2DhcAQbUrFWa2nWxYq7LnVB6Z9o6yHQusyJY9QHQfH4="
-  },
-  {
-    "name": "libgcc1",
-    "url": "https://archive.debian.org/debian/pool/main/g/gcc-8/libgcc1_8.3.0-6_arm64.deb",
-    "sha256": "sha256-KFGsJdEpWFhsA13l7E8vwXJy3sSPd23Q3STGL2JnT9k="
   },
   {
     "name": "libgdk-pixbuf2.0-0",
@@ -433,11 +403,6 @@
     "name": "libice-dev",
     "url": "https://archive.debian.org/debian/pool/main/libi/libice/libice-dev_1.0.9-2_arm64.deb",
     "sha256": "sha256-rNzQohtTuJFnbb7kMMTumlvzdcRCMC1vUwMWxIbD5rQ="
-  },
-  {
-    "name": "libicu63",
-    "url": "https://archive.debian.org/debian/pool/main/i/icu/libicu63_63.1-6+deb10u3_arm64.deb",
-    "sha256": "sha256-b2jBUU5JaS3IjDrbPz26xKjIqcosvr9jIPfDg2t6Wo0="
   },
   {
     "name": "libicu-dev",
@@ -928,5 +893,40 @@
     "name": "zlib1g-dev",
     "url": "https://archive.debian.org/debian/pool/main/z/zlib/zlib1g-dev_1.2.11.dfsg-1+deb10u1_arm64.deb",
     "sha256": "sha256-UMF7OqtGuv0mRshcIii4mf0Hbb3RzxKJ0fJ5iaKKgZ8="
+  },
+  {
+    "name": "gcc-8",
+    "url": "https://archive.debian.org/debian/pool/main/g/gcc-8/gcc-8_8.3.0-6_arm64.deb",
+    "sha256": "sha256-6+vT7kHHumO7JS5PkY5SWS/TrLstis+S9wtRe7AIJBA="
+  },
+  {
+    "name": "gcc-8-base",
+    "url": "https://archive.debian.org/debian/pool/main/g/gcc-8/gcc-8-base_8.3.0-6_arm64.deb",
+    "sha256": "sha256-QUVoYOkpvuyOrVKCz2iR24/iE6+G1Gln53+bE7HES/I="
+  },
+  {
+    "name": "libgcc-8-dev",
+    "url": "https://archive.debian.org/debian/pool/main/g/gcc-8/libgcc-8-dev_8.3.0-6_arm64.deb",
+    "sha256": "sha256-2DhcAQbUrFWa2nWxYq7LnVB6Z9o6yHQusyJY9QHQfH4="
+  },
+  {
+    "name": "libgcc1",
+    "url": "https://archive.debian.org/debian/pool/main/g/gcc-8/libgcc1_8.3.0-6_arm64.deb",
+    "sha256": "sha256-KFGsJdEpWFhsA13l7E8vwXJy3sSPd23Q3STGL2JnT9k="
+  },
+  {
+    "name": "libffi6",
+    "url": "https://archive.debian.org/debian/pool/main/libf/libffi/libffi6_3.2.1-9_arm64.deb",
+    "sha256": "sha256-xff0FY3GghvzfdRM4P5DmbV5jUrn6CGthbYwWaKzHA8="
+  },
+  {
+    "name": "libicu63",
+    "url": "https://archive.debian.org/debian/pool/main/i/icu/libicu63_63.1-6+deb10u3_arm64.deb",
+    "sha256": "sha256-b2jBUU5JaS3IjDrbPz26xKjIqcosvr9jIPfDg2t6Wo0="
+  },
+  {
+    "name": "libfontconfig1-dev",
+    "url": "https://archive.debian.org/debian/pool/main/f/fontconfig/libfontconfig1-dev_2.13.1-2_arm64.deb",
+    "sha256": "sha256-3jg3jbVLsIt8NzPHHqa+EiWTuZRUTrLCe4mIoo0szIg="
   }
 ]
