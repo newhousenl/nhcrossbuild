@@ -13,6 +13,7 @@ COMMON_PACKAGES = [
     "libatk1.0-0", "libatk1.0-dev", "libatk-adaptor",
     "libatk-bridge2.0-0", "libatk-bridge2.0-dev", "libatspi2.0-0", "libatspi2.0-dev",
     "libblkid1", "libblkid-dev",
+    "libbrotli1", "libbrotli-dev",
     "libbz2-1.0", "libbz2-dev",
     "libc6", "libc6-dev",
     "libcairo2", "libcairo2-dev", "libcairo-gobject2", "libcairo-script-interpreter2",
@@ -28,6 +29,7 @@ COMMON_PACKAGES = [
     "libffi-dev",
     "libfontconfig1",  # runtime library (both versions)
     "libfreetype6",
+    "libfribidi0", "libfribidi-dev",
     "libgdk-pixbuf2.0-0", "libgdk-pixbuf2.0-common", "libgdk-pixbuf2.0-dev",
     "libgl1", "libgl1-mesa-dev", "libgl1-mesa-glx", "libglapi-mesa",
     "libgles1", "libgles2", "libgles2-mesa", "libgles2-mesa-dev",
@@ -185,6 +187,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--version", choices=["10", "11"], required=True)
     parser.add_argument("--arch", default="amd64")
+    parser.add_argument("--full", action="store_true", help="Include all system libraries and dev packages")
     args = parser.parse_args()
 
     version = args.version
@@ -203,11 +206,35 @@ def main():
     available_pkgs = fetch_package_list(version, arch)
     mirror = DEBIAN_MIRRORS[version]
 
-    effective_packages = (
-        COMMON_PACKAGES
-        + VERSION_PACKAGES.get(version, [])
-        + ARCH_PACKAGES.get(arch, [])
-    )
+    if args.full:
+        print("Running in FULL mode: filtering all system libraries...")
+        def is_system_library(pkg_name, info):
+            section = info.get("Section", "").lower()
+            if section not in ["devel", "libdevel", "libs"]:
+                return False
+            
+            # Exclude common non-C++ language bindings and large metadata/apps
+            exclude_keywords = [
+                "perl", "python", "java", "php", "ruby", "ocaml", "node-",
+                "ghc-", "android-", "mingw-", "-doc", "-bin", "-samples", "-gcj"
+            ]
+            if any(k in pkg_name.lower() for k in exclude_keywords):
+                return False
+            return True
+
+        library_packages = [n for n, info in available_pkgs.items() if is_system_library(n, info)]
+        effective_packages = sorted(list(set(
+            COMMON_PACKAGES 
+            + VERSION_PACKAGES.get(version, []) 
+            + ARCH_PACKAGES.get(arch, [])
+            + library_packages
+        )))
+    else:
+        effective_packages = (
+            COMMON_PACKAGES
+            + VERSION_PACKAGES.get(version, [])
+            + ARCH_PACKAGES.get(arch, [])
+        )
 
     # Validate all packages exist before doing any download work
     missing = [p for p in effective_packages if p not in available_pkgs]

@@ -70,6 +70,16 @@
     "sha256": "sha256-LxBdOhJOwaxc75svhwV4VqF/G5yFJCOgQeNTcHyr79Y="
   },
   {
+    "name": "libbrotli1",
+    "url": "https://deb.debian.org/debian/pool/main/b/brotli/libbrotli1_1.0.9-2+b2_amd64.deb",
+    "sha256": "sha256-Zcp9iwPp2sCcXVRKid1S0a63T2oZWD0y5P9fDHdiTCQ="
+  },
+  {
+    "name": "libbrotli-dev",
+    "url": "https://deb.debian.org/debian/pool/main/b/brotli/libbrotli-dev_1.0.9-2+b2_amd64.deb",
+    "sha256": "sha256-Ug74868aGQrCzllUwOQsjmuApZMST5foE74z6eBo/8M="
+  },
+  {
     "name": "libbz2-1.0",
     "url": "https://deb.debian.org/debian/pool/main/b/bzip2/libbz2-1.0_1.0.8-4_amd64.deb",
     "sha256": "sha256-FuJ8Pr2XmB5w2zcz+JmWM2J0jxeKYmRN9p0fJH50E3k="
@@ -238,6 +248,16 @@
     "name": "libfreetype6",
     "url": "https://deb.debian.org/debian/pool/main/f/freetype/libfreetype6_2.10.4+dfsg-1+deb11u1_amd64.deb",
     "sha256": "sha256-shz90SrfbKxK8yDCSF+2Kope3G+XaLwiiP1ob0+m398="
+  },
+  {
+    "name": "libfribidi0",
+    "url": "https://deb.debian.org/debian/pool/main/f/fribidi/libfribidi0_1.0.8-2+deb11u1_amd64.deb",
+    "sha256": "sha256-aQqImt++TmVuM7US3BCZzykyhjLWhFJ9z9SGKBDF7lY="
+  },
+  {
+    "name": "libfribidi-dev",
+    "url": "https://deb.debian.org/debian/pool/main/f/fribidi/libfribidi-dev_1.0.8-2+deb11u1_amd64.deb",
+    "sha256": "sha256-tS3iX3KNgbRUQNWtJFjKmAnecA6O42QyBwPSeeDtQ1g="
   },
   {
     "name": "libgdk-pixbuf2.0-0",
