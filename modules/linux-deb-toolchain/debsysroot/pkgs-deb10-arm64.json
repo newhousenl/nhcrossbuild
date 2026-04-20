@@ -270,11 +270,6 @@
     "sha256": "sha256-ExDj8CWIZutNDpXxQNXZAlz2vh4+LDdfSkJszC54z2g="
   },
   {
-    "name": "libgdk-pixbuf2.0-dev",
-    "url": "https://archive.debian.org/debian/pool/main/g/gdk-pixbuf/libgdk-pixbuf2.0-dev_2.38.1+dfsg-1_arm64.deb",
-    "sha256": "sha256-5yiy9sWsDXtDDL1mUlyy5KYsM2uY8DtDNGF3PJ5VYQE="
-  },
-  {
     "name": "libgl1",
     "url": "https://archive.debian.org/debian/pool/main/libg/libglvnd/libgl1_1.1.0-1_arm64.deb",
     "sha256": "sha256-NPomebFvuXw6peT5lAyPLyxdwORwg0xqnp2KF4n37jI="
@@ -948,5 +943,10 @@
     "name": "libfreetype6-dev",
     "url": "https://archive.debian.org/debian/pool/main/f/freetype/libfreetype6-dev_2.9.1-3+deb10u3_arm64.deb",
     "sha256": "sha256-YVY51eCItJOER9HcRshdtJ8lJK7Drg0vnHgH4W0dfCM="
+  },
+  {
+    "name": "libgdk-pixbuf2.0-dev",
+    "url": "https://archive.debian.org/debian/pool/main/g/gdk-pixbuf/libgdk-pixbuf2.0-dev_2.38.1+dfsg-1_arm64.deb",
+    "sha256": "sha256-5yiy9sWsDXtDDL1mUlyy5KYsM2uY8DtDNGF3PJ5VYQE="
   }
 ]

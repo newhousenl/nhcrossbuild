@@ -30,7 +30,7 @@ COMMON_PACKAGES = [
     "libfontconfig1",  # runtime library (both versions)
     "libfreetype6",
     "libfribidi0", "libfribidi-dev",
-    "libgdk-pixbuf2.0-0", "libgdk-pixbuf2.0-common", "libgdk-pixbuf2.0-dev",
+    "libgdk-pixbuf2.0-0", "libgdk-pixbuf2.0-common",
     "libgl1", "libgl1-mesa-dev", "libgl1-mesa-glx", "libglapi-mesa",
     "libgles1", "libgles2", "libgles2-mesa", "libgles2-mesa-dev",
     "libglib2.0-0", "libglib2.0-bin", "libglib2.0-dev",
@@ -105,6 +105,7 @@ VERSION_PACKAGES = {
         # In Debian 10, libfontconfig1-dev is the real dev package
         "libfontconfig1-dev",
         "libfreetype6-dev",
+        "libgdk-pixbuf2.0-dev",
     ],
     "11": [
         # GCC 10 is the default compiler in Debian 11 (Bullseye)
@@ -115,6 +116,7 @@ VERSION_PACKAGES = {
         # In Debian 11, libfontconfig1-dev is a dummy; libfontconfig-dev has the real files
         "libfontconfig-dev",
         "libfreetype-dev",
+        "libgdk-pixbuf-2.0-dev",
         # Proper vendor-neutral GL/GLES/EGL dev packages (Debian 11 libglvnd transition)
         "libgl-dev",
         "libgles-dev",
