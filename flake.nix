@@ -12,6 +12,7 @@
         {
           system,
           debianrelease ? 10,
+          arch ? "amd64",
           extraToolchainContent ? "",
           nativeBuildInputs ? [ ],
         }:
@@ -43,7 +44,7 @@
               llvmfullversion
               ;
             debianversion = debianrelease;
-            arch = "amd64";
+            inherit arch;
           };
           toolchain_macos = pkgs.callPackage ./modules/macos-toolchain/default.nix {
             inherit
@@ -133,10 +134,12 @@
             default = makeDevShell {
               inherit system;
               debianrelease = 10;
+              arch = "amd64";
             };
             debian11 = makeDevShell {
               inherit system;
               debianrelease = 11;
+              arch = "amd64";
             };
           });
     };

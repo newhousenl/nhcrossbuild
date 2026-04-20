@@ -9,7 +9,7 @@ import argparse
 
 # Default packages to fetch (all listed in deb10 version)
 DEFAULT_PACKAGES = [
-    "adwaita-icon-theme", "dconf-gsettings-backend", "gcc-8", "gcc-8-base", "gettext",
+    "adwaita-icon-theme", "dconf-gsettings-backend", "gcc-8", "gcc-8-base", "gcc-10", "gcc-10-base", "gettext",
     "libasound2", "libasound2-dev", "libatk1.0-0", "libatk1.0-dev", "libatk-adaptor",
     "libatk-bridge2.0-0", "libatk-bridge2.0-dev", "libatspi2.0-0", "libatspi2.0-dev",
     "libblkid1", "libblkid-dev", "libbz2-1.0", "libbz2-dev", "libc6", "libc6-dev",
@@ -18,15 +18,15 @@ DEFAULT_PACKAGES = [
     "libdrm2", "libdrm-amdgpu1", "libdrm-dev", "libdrm-intel1", "libdrm-nouveau2",
     "libdrm-radeon1", "libdw1", "libdw-dev", "libegl1", "libegl1-mesa", "libegl1-mesa-dev",
     "libegl-mesa0", "libelf1", "libelf-dev", "libepoxy0", "libepoxy-dev", "libexpat1",
-    "libexpat1-dev", "libffi6", "libffi-dev", "libfontconfig1", "libfontconfig1-dev",
-    "libfreetype6", "libfreetype6-dev", "libgcc1", "libgcc-8-dev", "libgdk-pixbuf2.0-0",
+    "libexpat1-dev", "libffi6", "libffi7", "libffi-dev", "libfontconfig1", "libfontconfig1-dev",
+    "libfreetype6", "libfreetype6-dev", "libgcc-8-dev", "libgcc-10-dev", "libgcc1", "libgcc-s1", "libgdk-pixbuf2.0-0",
     "libgdk-pixbuf2.0-common", "libgdk-pixbuf2.0-dev", "libgl1", "libgl1-mesa-dev",
     "libgl1-mesa-glx", "libglapi-mesa", "libgles1", "libgles2", "libgles2-mesa",
     "libgles2-mesa-dev", "libglib2.0-0", "libglib2.0-bin", "libglib2.0-dev", "libglu1-mesa",
     "libglu1-mesa-dev", "libglvnd0", "libglvnd-core-dev", "libglvnd-dev", "libglx0",
     "libglx-mesa0", "libgraphite2-3", "libgraphite2-dev", "libgtk-3-0", "libgtk-3-common",
     "libgtk-3-dev", "libharfbuzz0b", "libharfbuzz-dev", "libharfbuzz-gobject0",
-    "libharfbuzz-icu0", "libice6", "libice-dev", "libicu63", "libicu-dev", "libjpeg62-turbo",
+    "libharfbuzz-icu0", "libice6", "libice-dev", "libicu63", "libicu67", "libicu-dev", "libjpeg62-turbo",
     "libjpeg62-turbo-dev", "libjson-glib-1.0-0", "libkmod2", "liblzma5", "liblzma-dev",
     "libmount1", "libmount-dev", "libopengl0", "libpango-1.0-0", "libpango1.0-dev",
     "libpangocairo-1.0-0", "libpangoft2-1.0-0", "libpangoxft-1.0-0", "libpciaccess0",
@@ -61,16 +61,13 @@ DEBIAN_SUITES = {
 def get_nix_hash(url):
     print(f"Downloading and hashing {url}")
     # Use nix-prefetch-url to get the hash directly
-    # To handle filenames with '~' which Nix store doesn't like, we rename the file
     try:
-        # nix-prefetch-url [url] [expected-hash]
-        # We can also use --name to specify a safe name
         safe_name = os.path.basename(url).replace("~", "_")
         result = subprocess.run(["nix-prefetch-url", "--type", "sha256", "--name", safe_name, url], capture_output=True, text=True, check=True)
         sha256_hex = result.stdout.strip()
-        # Convert hex to base64 for better compatibility with Nix hashes
-        # Or just use the hex hash which is also valid
-        return f"sha256-{sha256_hex}" 
+        # Convert hex to base64 to get the standard sha256-... format
+        res = subprocess.run(["nix-hash", "--type", "sha256", "--to-base64", sha256_hex], capture_output=True, text=True, check=True)
+        return f"sha256-{res.stdout.strip()}" 
     except subprocess.CalledProcessError as e:
         print(f"Error hashing {url}: {e.stderr}")
         return None
