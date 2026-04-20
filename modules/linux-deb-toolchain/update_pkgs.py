@@ -48,6 +48,12 @@ DEFAULT_PACKAGES = [
     "x11proto-dev", "xkb-data", "xorg-sgml-doctools", "zlib1g", "zlib1g-dev"
 ]
 
+# Per-version extra packages to add on top of DEFAULT_PACKAGES.
+# In Debian 11, libfontconfig1-dev became a dummy which depends on the real package libfontconfig-dev.
+VERSION_EXTRA_PACKAGES = {
+    "11": ["libfontconfig-dev"],
+}
+
 DEBIAN_MIRRORS = {
     "10": "https://archive.debian.org/debian",
     "11": "https://deb.debian.org/debian"
@@ -104,7 +110,7 @@ def main():
     
     version = args.version
     arch = args.arch
-    json_path = os.path.join(os.path.dirname(__file__), "debsysroot", f"pkgs-deb{version}.json")
+    json_path = os.path.join(os.path.dirname(__file__), "debsysroot", f"pkgs-deb{version}-{arch}.json")
     
     existing_pkgs = {}
     if os.path.exists(json_path):
@@ -115,10 +121,12 @@ def main():
 
     available_pkgs = fetch_package_list(version, arch)
     mirror = DEBIAN_MIRRORS[version]
-    
+
+    effective_packages = DEFAULT_PACKAGES + VERSION_EXTRA_PACKAGES.get(version, [])
+
     updated_list = []
     
-    for pkg_name in DEFAULT_PACKAGES:
+    for pkg_name in effective_packages:
         # Some packages might have version-specific names or might be missing in newer release
         # For now we assume they exist or handle errors
         if pkg_name not in available_pkgs:

@@ -1,7 +1,7 @@
 { stdenv, fetchurl, lib, dpkg, debianversion ? 10, arch ? "amd64" }:
 
 let
-  pkgsData = builtins.fromJSON (builtins.readFile (./. + "/pkgs-deb${toString debianversion}.json"));
+  pkgsData = builtins.fromJSON (builtins.readFile (./. + "/pkgs-deb${toString debianversion}-${arch}.json"));
 
   debPackages = map (pkg: fetchurl {
     inherit (pkg) url;
@@ -23,6 +23,7 @@ stdenv.mkDerivation {
     for deb in ${lib.concatStringsSep " " debPackages}; do
       dpkg-deb -x $deb $out
     done
+
 
     # Cleanup and symlink handling
     pushd $out

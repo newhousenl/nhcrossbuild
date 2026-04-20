@@ -1,0 +1,932 @@
+[
+  {
+    "name": "adwaita-icon-theme",
+    "url": "https://archive.debian.org/debian/pool/main/a/adwaita-icon-theme/adwaita-icon-theme_3.30.1-1_all.deb",
+    "sha256": "sha256-aYs/D6M3uzbqT+Byo3oyocgYddsTBCNoZ3SQuwh8y5M="
+  },
+  {
+    "name": "dconf-gsettings-backend",
+    "url": "https://archive.debian.org/debian/pool/main/d/dconf/dconf-gsettings-backend_0.30.1-2_arm64.deb",
+    "sha256": "sha256-6TwqPdvzS3bZs097Tw7nPY3Nb5/h7aIMIJM29oAmp4E="
+  },
+  {
+    "name": "gcc-8",
+    "url": "https://archive.debian.org/debian/pool/main/g/gcc-8/gcc-8_8.3.0-6_arm64.deb",
+    "sha256": "sha256-6+vT7kHHumO7JS5PkY5SWS/TrLstis+S9wtRe7AIJBA="
+  },
+  {
+    "name": "gcc-8-base",
+    "url": "https://archive.debian.org/debian/pool/main/g/gcc-8/gcc-8-base_8.3.0-6_arm64.deb",
+    "sha256": "sha256-QUVoYOkpvuyOrVKCz2iR24/iE6+G1Gln53+bE7HES/I="
+  },
+  {
+    "name": "gettext",
+    "url": "https://archive.debian.org/debian/pool/main/g/gettext/gettext_0.19.8.1-9_arm64.deb",
+    "sha256": "sha256-eK3+1WFdmo+VsF4nsNXHM2wzkr14P1fWw+zT+eURCXM="
+  },
+  {
+    "name": "libasound2",
+    "url": "https://archive.debian.org/debian/pool/main/a/alsa-lib/libasound2_1.1.8-1_arm64.deb",
+    "sha256": "sha256-r2Y9B9ELCF9ZDFOXctv3Cyed8YchDqgYRG39iWSHre4="
+  },
+  {
+    "name": "libasound2-dev",
+    "url": "https://archive.debian.org/debian/pool/main/a/alsa-lib/libasound2-dev_1.1.8-1_arm64.deb",
+    "sha256": "sha256-YX7QNb18qqtkx/aOW2c71gFg61Nrnnyjx0jMnEaUn/4="
+  },
+  {
+    "name": "libatk1.0-0",
+    "url": "https://archive.debian.org/debian/pool/main/a/atk1.0/libatk1.0-0_2.30.0-2_arm64.deb",
+    "sha256": "sha256-7Cb5aMviutnjmJChuop/RxaZT8gkGGwpNS6aCkdV0n4="
+  },
+  {
+    "name": "libatk1.0-dev",
+    "url": "https://archive.debian.org/debian/pool/main/a/atk1.0/libatk1.0-dev_2.30.0-2_arm64.deb",
+    "sha256": "sha256-Nxv5s7dti1DEpd4t/rqQLXTAUVrt78MqeHtstGiq8i0="
+  },
+  {
+    "name": "libatk-adaptor",
+    "url": "https://archive.debian.org/debian/pool/main/a/at-spi2-atk/libatk-adaptor_2.30.0-5_arm64.deb",
+    "sha256": "sha256-3AGEAyeWG4osD1QwRSgRssxZHGEYbl3+f3AQ+w0soP4="
+  },
+  {
+    "name": "libatk-bridge2.0-0",
+    "url": "https://archive.debian.org/debian/pool/main/a/at-spi2-atk/libatk-bridge2.0-0_2.30.0-5_arm64.deb",
+    "sha256": "sha256-RS/+N3uV4gNvoiOSI8w1GxofPvHmgA4PslT/JPCINAk="
+  },
+  {
+    "name": "libatk-bridge2.0-dev",
+    "url": "https://archive.debian.org/debian/pool/main/a/at-spi2-atk/libatk-bridge2.0-dev_2.30.0-5_arm64.deb",
+    "sha256": "sha256-pb4bFVOAPBNTetZaQ8NxkdsZfYfGl1hHTn+cS0Hx414="
+  },
+  {
+    "name": "libatspi2.0-0",
+    "url": "https://archive.debian.org/debian/pool/main/a/at-spi2-core/libatspi2.0-0_2.30.0-7_arm64.deb",
+    "sha256": "sha256-e2CKWQcA3hv7QyouED1r3tzRQMajosQpg/TXgYc5T2s="
+  },
+  {
+    "name": "libatspi2.0-dev",
+    "url": "https://archive.debian.org/debian/pool/main/a/at-spi2-core/libatspi2.0-dev_2.30.0-7_arm64.deb",
+    "sha256": "sha256-AEyVcfgTkI7+KfJKm72fpXAp5mWY5AA6yx3roxHxSbU="
+  },
+  {
+    "name": "libblkid1",
+    "url": "https://archive.debian.org/debian/pool/main/u/util-linux/libblkid1_2.33.1-0.1_arm64.deb",
+    "sha256": "sha256-wrjaUeQVACDDjbvdTAcur/Lci6hrsep1B3fmQ4M7PnY="
+  },
+  {
+    "name": "libblkid-dev",
+    "url": "https://archive.debian.org/debian/pool/main/u/util-linux/libblkid-dev_2.33.1-0.1_arm64.deb",
+    "sha256": "sha256-ZBh2J7vc3Y6JRjBnr/yydMwG64XaDKv4ksuk+G/0t7Y="
+  },
+  {
+    "name": "libbz2-1.0",
+    "url": "https://archive.debian.org/debian/pool/main/b/bzip2/libbz2-1.0_1.0.6-9.2~deb10u1_arm64.deb",
+    "sha256": "sha256-dZ9y663ByKeQoSYMKdQHNtDrwu4aTgA+pwcEYxtCYU4="
+  },
+  {
+    "name": "libbz2-dev",
+    "url": "https://archive.debian.org/debian/pool/main/b/bzip2/libbz2-dev_1.0.6-9.2~deb10u1_arm64.deb",
+    "sha256": "sha256-joeq8zosVJ+tQ6AzWtfF/FT8jTs19yuVjvDKdK76U6g="
+  },
+  {
+    "name": "libc6",
+    "url": "https://archive.debian.org/debian/pool/main/g/glibc/libc6_2.28-10+deb10u1_arm64.deb",
+    "sha256": "sha256-CfXpKxUnzcBrdXSZu02X3fGwZPw9Fj+Xjl3hixMc0zA="
+  },
+  {
+    "name": "libc6-dev",
+    "url": "https://archive.debian.org/debian/pool/main/g/glibc/libc6-dev_2.28-10+deb10u1_arm64.deb",
+    "sha256": "sha256-BAl3FgGCiM74uCM5+qGphHg4uJ85V0tbFp9GV9qL8mk="
+  },
+  {
+    "name": "libcairo2",
+    "url": "https://archive.debian.org/debian/pool/main/c/cairo/libcairo2_1.16.0-4+deb10u1_arm64.deb",
+    "sha256": "sha256-aflYNmHWmRUyowtip2c8fd+7JzHbVU7VzYX2W25Tj3Q="
+  },
+  {
+    "name": "libcairo2-dev",
+    "url": "https://archive.debian.org/debian/pool/main/c/cairo/libcairo2-dev_1.16.0-4+deb10u1_arm64.deb",
+    "sha256": "sha256-6qRvarLMKjB/JMfBbh5pjJaVQz/v7a1zFUiGnMuAHE4="
+  },
+  {
+    "name": "libcairo-gobject2",
+    "url": "https://archive.debian.org/debian/pool/main/c/cairo/libcairo-gobject2_1.16.0-4+deb10u1_arm64.deb",
+    "sha256": "sha256-HQpuIUOTLavs2/k7kXMA8prg3zI+bkifM1XynoBJ1wQ="
+  },
+  {
+    "name": "libcairo-script-interpreter2",
+    "url": "https://archive.debian.org/debian/pool/main/c/cairo/libcairo-script-interpreter2_1.16.0-4+deb10u1_arm64.deb",
+    "sha256": "sha256-/DqadT15Y8gYrpeb1kYkVwaDBtn6KoiqjsU22W5WB2s="
+  },
+  {
+    "name": "libcolord2",
+    "url": "https://archive.debian.org/debian/pool/main/c/colord/libcolord2_1.4.3-4_arm64.deb",
+    "sha256": "sha256-jguGJypPsW3Os4DOPeXNWuoVa2nZdMhayuMotJSS71o="
+  },
+  {
+    "name": "libcups2",
+    "url": "https://archive.debian.org/debian/pool/main/c/cups/libcups2_2.2.10-6+deb10u6_arm64.deb",
+    "sha256": "sha256-HqJBbo4QozPiBZIGoUGVwEcXU9hYhgZImCXGMK4zsko="
+  },
+  {
+    "name": "libcups2-dev",
+    "url": "https://archive.debian.org/debian/pool/main/c/cups/libcups2-dev_2.2.10-6+deb10u6_arm64.deb",
+    "sha256": "sha256-+zi5k5VMxOL3wDXSWH+UkIFgGMODnHizZXSqNtEjaWw="
+  },
+  {
+    "name": "libdbus-1-3",
+    "url": "https://archive.debian.org/debian/pool/main/d/dbus/libdbus-1-3_1.12.20-0+deb10u1_arm64.deb",
+    "sha256": "sha256-jRwRvSGmaIlKybmjksEFIbd7OrV7UewUyi239PWkXeg="
+  },
+  {
+    "name": "libdbus-1-dev",
+    "url": "https://archive.debian.org/debian/pool/main/d/dbus/libdbus-1-dev_1.12.20-0+deb10u1_arm64.deb",
+    "sha256": "sha256-kyBeh+jVNPN+T7S7AkWPKh6GrquCVuNc3XRiorj6WpU="
+  },
+  {
+    "name": "libdconf1",
+    "url": "https://archive.debian.org/debian/pool/main/d/dconf/libdconf1_0.30.1-2_arm64.deb",
+    "sha256": "sha256-rhRT8RlMJF4pdmDH4y6ojSv2o66tK9/Hmoe64OrpE7I="
+  },
+  {
+    "name": "libdrm2",
+    "url": "https://archive.debian.org/debian/pool/main/libd/libdrm/libdrm2_2.4.97-1_arm64.deb",
+    "sha256": "sha256-wVIetrY9x5TpSH5v1pViAbl/wjDVFMz1v3ZxEeD4bvs="
+  },
+  {
+    "name": "libdrm-amdgpu1",
+    "url": "https://archive.debian.org/debian/pool/main/libd/libdrm/libdrm-amdgpu1_2.4.97-1_arm64.deb",
+    "sha256": "sha256-p5DHFgpEQ8t28Xx+stZCnNV6FvGpYnrKgS6FITp4c4E="
+  },
+  {
+    "name": "libdrm-dev",
+    "url": "https://archive.debian.org/debian/pool/main/libd/libdrm/libdrm-dev_2.4.97-1_arm64.deb",
+    "sha256": "sha256-Ib0Zx+SthomONhP0VoNjD19CzWlrl4687QuTodlDEEo="
+  },
+  {
+    "name": "libdrm-nouveau2",
+    "url": "https://archive.debian.org/debian/pool/main/libd/libdrm/libdrm-nouveau2_2.4.97-1_arm64.deb",
+    "sha256": "sha256-7WS7xIqntVpOCjmOBYSYoka2Z5SeEwUi2pni6b0T2dU="
+  },
+  {
+    "name": "libdrm-radeon1",
+    "url": "https://archive.debian.org/debian/pool/main/libd/libdrm/libdrm-radeon1_2.4.97-1_arm64.deb",
+    "sha256": "sha256-goVIytQYyLQU+bvRpjORSYIW8UoGXxxpW5P5jeBOaTE="
+  },
+  {
+    "name": "libdw1",
+    "url": "https://archive.debian.org/debian/pool/main/e/elfutils/libdw1_0.176-1.1_arm64.deb",
+    "sha256": "sha256-BmWnuYva3k4TUv3YYQ48dcasxDjD1dZDxMMtdzW3+zk="
+  },
+  {
+    "name": "libdw-dev",
+    "url": "https://archive.debian.org/debian/pool/main/e/elfutils/libdw-dev_0.176-1.1_arm64.deb",
+    "sha256": "sha256-i0b6W6MkRn0P/xnVa1jTbKPDwVHlwZlNFDUUHMfYasw="
+  },
+  {
+    "name": "libegl1",
+    "url": "https://archive.debian.org/debian/pool/main/libg/libglvnd/libegl1_1.1.0-1_arm64.deb",
+    "sha256": "sha256-f4oJrroAFzyBeVXfnBQyRkIsvWVZkDhhLNiRDVINgns="
+  },
+  {
+    "name": "libegl1-mesa",
+    "url": "https://archive.debian.org/debian/pool/main/m/mesa/libegl1-mesa_18.3.6-2+deb10u1_arm64.deb",
+    "sha256": "sha256-evsZLnyWKnKAXBYfGcJm69UIqX8f7GPnuVch+8EdKWo="
+  },
+  {
+    "name": "libegl1-mesa-dev",
+    "url": "https://archive.debian.org/debian/pool/main/m/mesa/libegl1-mesa-dev_18.3.6-2+deb10u1_arm64.deb",
+    "sha256": "sha256-PHu0TjXs0H+wAIQATjLl9X0wr8yhYIcFG+A73mVAW7o="
+  },
+  {
+    "name": "libegl-mesa0",
+    "url": "https://archive.debian.org/debian/pool/main/m/mesa/libegl-mesa0_18.3.6-2+deb10u1_arm64.deb",
+    "sha256": "sha256-cLwDPlR0tscw14PTq3XJBu8/FwpEaB9QnkG4H9PivXM="
+  },
+  {
+    "name": "libelf1",
+    "url": "https://archive.debian.org/debian/pool/main/e/elfutils/libelf1_0.176-1.1_arm64.deb",
+    "sha256": "sha256-fFUKXrBX7Fw4835566R2eF46hAl/e3QIZts5ASuZRw8="
+  },
+  {
+    "name": "libelf-dev",
+    "url": "https://archive.debian.org/debian/pool/main/e/elfutils/libelf-dev_0.176-1.1_arm64.deb",
+    "sha256": "sha256-6e9L8i0stp+bpk/8phwSpXOFQ23wcqfp76lLVYr7NoU="
+  },
+  {
+    "name": "libepoxy0",
+    "url": "https://archive.debian.org/debian/pool/main/libe/libepoxy/libepoxy0_1.5.3-0.1_arm64.deb",
+    "sha256": "sha256-uLkjLERUvNq3Dc5M1CAblYoIGXdsn7u0Yd+l0kk4yQI="
+  },
+  {
+    "name": "libepoxy-dev",
+    "url": "https://archive.debian.org/debian/pool/main/libe/libepoxy/libepoxy-dev_1.5.3-0.1_arm64.deb",
+    "sha256": "sha256-pWIl2/GPVoKd1CDtWuUjBVse/w9XX9D0AbmLEFAnAqg="
+  },
+  {
+    "name": "libexpat1",
+    "url": "https://archive.debian.org/debian/pool/main/e/expat/libexpat1_2.2.6-2+deb10u4_arm64.deb",
+    "sha256": "sha256-NUaSYhCKkaddOP77RuS98/O5k1F5KiwPczOdLVOtuT0="
+  },
+  {
+    "name": "libexpat1-dev",
+    "url": "https://archive.debian.org/debian/pool/main/e/expat/libexpat1-dev_2.2.6-2+deb10u4_arm64.deb",
+    "sha256": "sha256-bIMFuyTd9FlCfpd5Vacw67MDfBCtlRC6TJIjr+PU+WI="
+  },
+  {
+    "name": "libffi6",
+    "url": "https://archive.debian.org/debian/pool/main/libf/libffi/libffi6_3.2.1-9_arm64.deb",
+    "sha256": "sha256-xff0FY3GghvzfdRM4P5DmbV5jUrn6CGthbYwWaKzHA8="
+  },
+  {
+    "name": "libffi-dev",
+    "url": "https://archive.debian.org/debian/pool/main/libf/libffi/libffi-dev_3.2.1-9_arm64.deb",
+    "sha256": "sha256-cZRTVEpTODR7WAxNLhEi5vHFCz3cOyB1Ly1xBv5tLTk="
+  },
+  {
+    "name": "libfontconfig1",
+    "url": "https://archive.debian.org/debian/pool/main/f/fontconfig/libfontconfig1_2.13.1-2_arm64.deb",
+    "sha256": "sha256-deY5AP5Aq55dHh9YRYxAMw+c/5gFuSdJxE1UsawdqKQ="
+  },
+  {
+    "name": "libfontconfig1-dev",
+    "url": "https://archive.debian.org/debian/pool/main/f/fontconfig/libfontconfig1-dev_2.13.1-2_arm64.deb",
+    "sha256": "sha256-3jg3jbVLsIt8NzPHHqa+EiWTuZRUTrLCe4mIoo0szIg="
+  },
+  {
+    "name": "libfreetype6",
+    "url": "https://archive.debian.org/debian/pool/main/f/freetype/libfreetype6_2.9.1-3+deb10u3_arm64.deb",
+    "sha256": "sha256-pGnlI3T5JP6k+SYsX9+dTkn7/z7taKz2+bKYUQ1YqjA="
+  },
+  {
+    "name": "libfreetype6-dev",
+    "url": "https://archive.debian.org/debian/pool/main/f/freetype/libfreetype6-dev_2.9.1-3+deb10u3_arm64.deb",
+    "sha256": "sha256-YVY51eCItJOER9HcRshdtJ8lJK7Drg0vnHgH4W0dfCM="
+  },
+  {
+    "name": "libgcc-8-dev",
+    "url": "https://archive.debian.org/debian/pool/main/g/gcc-8/libgcc-8-dev_8.3.0-6_arm64.deb",
+    "sha256": "sha256-2DhcAQbUrFWa2nWxYq7LnVB6Z9o6yHQusyJY9QHQfH4="
+  },
+  {
+    "name": "libgcc1",
+    "url": "https://archive.debian.org/debian/pool/main/g/gcc-8/libgcc1_8.3.0-6_arm64.deb",
+    "sha256": "sha256-KFGsJdEpWFhsA13l7E8vwXJy3sSPd23Q3STGL2JnT9k="
+  },
+  {
+    "name": "libgdk-pixbuf2.0-0",
+    "url": "https://archive.debian.org/debian/pool/main/g/gdk-pixbuf/libgdk-pixbuf2.0-0_2.38.1+dfsg-1_arm64.deb",
+    "sha256": "sha256-TMSPgh5YbTUrmYVywNLUpgye/PI9kch3X0Ik0VAlG7U="
+  },
+  {
+    "name": "libgdk-pixbuf2.0-common",
+    "url": "https://archive.debian.org/debian/pool/main/g/gdk-pixbuf/libgdk-pixbuf2.0-common_2.38.1+dfsg-1_all.deb",
+    "sha256": "sha256-ExDj8CWIZutNDpXxQNXZAlz2vh4+LDdfSkJszC54z2g="
+  },
+  {
+    "name": "libgdk-pixbuf2.0-dev",
+    "url": "https://archive.debian.org/debian/pool/main/g/gdk-pixbuf/libgdk-pixbuf2.0-dev_2.38.1+dfsg-1_arm64.deb",
+    "sha256": "sha256-5yiy9sWsDXtDDL1mUlyy5KYsM2uY8DtDNGF3PJ5VYQE="
+  },
+  {
+    "name": "libgl1",
+    "url": "https://archive.debian.org/debian/pool/main/libg/libglvnd/libgl1_1.1.0-1_arm64.deb",
+    "sha256": "sha256-NPomebFvuXw6peT5lAyPLyxdwORwg0xqnp2KF4n37jI="
+  },
+  {
+    "name": "libgl1-mesa-dev",
+    "url": "https://archive.debian.org/debian/pool/main/m/mesa/libgl1-mesa-dev_18.3.6-2+deb10u1_arm64.deb",
+    "sha256": "sha256-8fRtBnWiNj8QKvzvZhpECXhcHQK1vg++XtciVaMd1OM="
+  },
+  {
+    "name": "libgl1-mesa-glx",
+    "url": "https://archive.debian.org/debian/pool/main/m/mesa/libgl1-mesa-glx_18.3.6-2+deb10u1_arm64.deb",
+    "sha256": "sha256-h6qAEnLsSoU9U8CQU1d6yfYUwiJ09nsn0/fkvGLTpwU="
+  },
+  {
+    "name": "libglapi-mesa",
+    "url": "https://archive.debian.org/debian/pool/main/m/mesa/libglapi-mesa_18.3.6-2+deb10u1_arm64.deb",
+    "sha256": "sha256-dAfgUz7UvX4SVLHw+ZLvSFkSHLThTrpkrlnn6ML9X0g="
+  },
+  {
+    "name": "libgles1",
+    "url": "https://archive.debian.org/debian/pool/main/libg/libglvnd/libgles1_1.1.0-1_arm64.deb",
+    "sha256": "sha256-LuURFqOiCI4eWE1/u7/prWIpgDAYLhx2EGg5DO9vwIk="
+  },
+  {
+    "name": "libgles2",
+    "url": "https://archive.debian.org/debian/pool/main/libg/libglvnd/libgles2_1.1.0-1_arm64.deb",
+    "sha256": "sha256-uX2a/t950M05sRqyFsDxoZR13wUU6HhG2joH9zGBkik="
+  },
+  {
+    "name": "libgles2-mesa",
+    "url": "https://archive.debian.org/debian/pool/main/m/mesa/libgles2-mesa_18.3.6-2+deb10u1_arm64.deb",
+    "sha256": "sha256-fWhBDt+I3daZdQZ8o+10tjH1jgMWcBKXLFqQX3iF4VM="
+  },
+  {
+    "name": "libgles2-mesa-dev",
+    "url": "https://archive.debian.org/debian/pool/main/m/mesa/libgles2-mesa-dev_18.3.6-2+deb10u1_arm64.deb",
+    "sha256": "sha256-XzO44VcY75Z0MWZ7Eb/CYAbnBtmmIkNEU+wHiEbUbV4="
+  },
+  {
+    "name": "libglib2.0-0",
+    "url": "https://archive.debian.org/debian/pool/main/g/glib2.0/libglib2.0-0_2.58.3-2+deb10u3_arm64.deb",
+    "sha256": "sha256-ARlDV3tJTISg/N/JfIaEemfPYmExpFeJ6AeS0z3INPs="
+  },
+  {
+    "name": "libglib2.0-bin",
+    "url": "https://archive.debian.org/debian/pool/main/g/glib2.0/libglib2.0-bin_2.58.3-2+deb10u3_arm64.deb",
+    "sha256": "sha256-1Hv8GtytcsCk66NjNU8qCPZ7D2KLPWdWMhR2zPamWBA="
+  },
+  {
+    "name": "libglib2.0-dev",
+    "url": "https://archive.debian.org/debian/pool/main/g/glib2.0/libglib2.0-dev_2.58.3-2+deb10u3_arm64.deb",
+    "sha256": "sha256-fGRhSpbuyI/ynKcPW3FzRwr4K2XVg6cvrNTbtmohbKs="
+  },
+  {
+    "name": "libglu1-mesa",
+    "url": "https://archive.debian.org/debian/pool/main/libg/libglu/libglu1-mesa_9.0.0-2.1+b3_arm64.deb",
+    "sha256": "sha256-XrEsqc+hFHXHmplK9rx277pDaIV2n9i6JbhIWuxP8tE="
+  },
+  {
+    "name": "libglu1-mesa-dev",
+    "url": "https://archive.debian.org/debian/pool/main/libg/libglu/libglu1-mesa-dev_9.0.0-2.1+b3_arm64.deb",
+    "sha256": "sha256-9xUreKzf7YfwJ3mfWckK1/d6r7bY8iX/S3d/X9EO+e8="
+  },
+  {
+    "name": "libglvnd0",
+    "url": "https://archive.debian.org/debian/pool/main/libg/libglvnd/libglvnd0_1.1.0-1_arm64.deb",
+    "sha256": "sha256-E9Jha2cMA78IaONZA8U9gFrw2yNtVbgdfT8Ca4UhkHY="
+  },
+  {
+    "name": "libglvnd-core-dev",
+    "url": "https://archive.debian.org/debian/pool/main/libg/libglvnd/libglvnd-core-dev_1.1.0-1_arm64.deb",
+    "sha256": "sha256-xXjWlnRU4aBVXTGRAkgK+8VKXm5PFtqS2uojb8YwVZc="
+  },
+  {
+    "name": "libglvnd-dev",
+    "url": "https://archive.debian.org/debian/pool/main/libg/libglvnd/libglvnd-dev_1.1.0-1_arm64.deb",
+    "sha256": "sha256-n8gsMKj8VqkiiXn1rxZZJ5y7kN3Kg2FP7k/W5F0uEa0="
+  },
+  {
+    "name": "libglx0",
+    "url": "https://archive.debian.org/debian/pool/main/libg/libglvnd/libglx0_1.1.0-1_arm64.deb",
+    "sha256": "sha256-NwfEonwy3vwsJTCh0sAzx8LEdZtoQKv75sKPe27jztw="
+  },
+  {
+    "name": "libglx-mesa0",
+    "url": "https://archive.debian.org/debian/pool/main/m/mesa/libglx-mesa0_18.3.6-2+deb10u1_arm64.deb",
+    "sha256": "sha256-hCYnmCxqwNaYGruu/sKklgmUx2O9dXU7hTEuddesYXY="
+  },
+  {
+    "name": "libgraphite2-3",
+    "url": "https://archive.debian.org/debian/pool/main/g/graphite2/libgraphite2-3_1.3.13-7_arm64.deb",
+    "sha256": "sha256-2rDWHCVEl4KJ13izi1HTWRQMVZ9jA+Gnemh6+ZhZETo="
+  },
+  {
+    "name": "libgraphite2-dev",
+    "url": "https://archive.debian.org/debian/pool/main/g/graphite2/libgraphite2-dev_1.3.13-7_arm64.deb",
+    "sha256": "sha256-sbzVNK7x8kg5tH5kko6o3/mhDLIfpXSx9jB6qtAU1JQ="
+  },
+  {
+    "name": "libgtk-3-0",
+    "url": "https://archive.debian.org/debian/pool/main/g/gtk+3.0/libgtk-3-0_3.24.5-1_arm64.deb",
+    "sha256": "sha256-nmWUJGHnqKzZw+LZD4N56T+/A4UuElcibduPp4oNync="
+  },
+  {
+    "name": "libgtk-3-common",
+    "url": "https://archive.debian.org/debian/pool/main/g/gtk+3.0/libgtk-3-common_3.24.5-1_all.deb",
+    "sha256": "sha256-HhyXnsiCVCzgm0DA9yRqfzSLQtm+xvMesmFKjdzNSHQ="
+  },
+  {
+    "name": "libgtk-3-dev",
+    "url": "https://archive.debian.org/debian/pool/main/g/gtk+3.0/libgtk-3-dev_3.24.5-1_arm64.deb",
+    "sha256": "sha256-DX3eOBGT3+1FVN0MNwQTFSafCdy+Pm1EaGYy7Ykbbdg="
+  },
+  {
+    "name": "libharfbuzz0b",
+    "url": "https://archive.debian.org/debian/pool/main/h/harfbuzz/libharfbuzz0b_2.3.1-1_arm64.deb",
+    "sha256": "sha256-u0gSlnpSTssiD8/W+cK/y4oEmNYS/W/A6SKZi7iK49c="
+  },
+  {
+    "name": "libharfbuzz-dev",
+    "url": "https://archive.debian.org/debian/pool/main/h/harfbuzz/libharfbuzz-dev_2.3.1-1_arm64.deb",
+    "sha256": "sha256-rgZsxwttrJ4sdGCgk3qeabJ5eMQSVriFrq0vsgIXqfE="
+  },
+  {
+    "name": "libharfbuzz-gobject0",
+    "url": "https://archive.debian.org/debian/pool/main/h/harfbuzz/libharfbuzz-gobject0_2.3.1-1_arm64.deb",
+    "sha256": "sha256-MbhjIKEaVxPo936h5+a+8GMPkEm0h7TLQEKlAAQ0fWQ="
+  },
+  {
+    "name": "libharfbuzz-icu0",
+    "url": "https://archive.debian.org/debian/pool/main/h/harfbuzz/libharfbuzz-icu0_2.3.1-1_arm64.deb",
+    "sha256": "sha256-x0Omts9Cy0CDl3TPO/NloMqqSxh4Do63Elc1Fryawa4="
+  },
+  {
+    "name": "libice6",
+    "url": "https://archive.debian.org/debian/pool/main/libi/libice/libice6_1.0.9-2_arm64.deb",
+    "sha256": "sha256-3JQ635WdDiz76GlsH0ufntgsxvnOXLS3yCgsHwEe2O4="
+  },
+  {
+    "name": "libice-dev",
+    "url": "https://archive.debian.org/debian/pool/main/libi/libice/libice-dev_1.0.9-2_arm64.deb",
+    "sha256": "sha256-rNzQohtTuJFnbb7kMMTumlvzdcRCMC1vUwMWxIbD5rQ="
+  },
+  {
+    "name": "libicu63",
+    "url": "https://archive.debian.org/debian/pool/main/i/icu/libicu63_63.1-6+deb10u3_arm64.deb",
+    "sha256": "sha256-b2jBUU5JaS3IjDrbPz26xKjIqcosvr9jIPfDg2t6Wo0="
+  },
+  {
+    "name": "libicu-dev",
+    "url": "https://archive.debian.org/debian/pool/main/i/icu/libicu-dev_63.1-6+deb10u3_arm64.deb",
+    "sha256": "sha256-kxjPc37ioj0WC8mK0kHJq4GHiKkz4x6Py7BJYUQ/2j4="
+  },
+  {
+    "name": "libjpeg62-turbo",
+    "url": "https://archive.debian.org/debian/pool/main/libj/libjpeg-turbo/libjpeg62-turbo_1.5.2-2+deb10u1_arm64.deb",
+    "sha256": "sha256-PjBzDIGdZmS59AsZJYU3e+Eo/KlwSWZBuYvPjEBe9ug="
+  },
+  {
+    "name": "libjpeg62-turbo-dev",
+    "url": "https://archive.debian.org/debian/pool/main/libj/libjpeg-turbo/libjpeg62-turbo-dev_1.5.2-2+deb10u1_arm64.deb",
+    "sha256": "sha256-zeX2TBXTcvs7X83EwgSSkB5b9CclDp0GspMz/SOaqNM="
+  },
+  {
+    "name": "libjson-glib-1.0-0",
+    "url": "https://archive.debian.org/debian/pool/main/j/json-glib/libjson-glib-1.0-0_1.4.4-2_arm64.deb",
+    "sha256": "sha256-f/KKw2T5ddXww1xSyXKGg4kHo/ZShUe0eRFNuInxgCM="
+  },
+  {
+    "name": "libkmod2",
+    "url": "https://archive.debian.org/debian/pool/main/k/kmod/libkmod2_26-1_arm64.deb",
+    "sha256": "sha256-7NGdsXNVuJNft0pHv+0Rm+LUDpUkwbU6ZvInw4DRyec="
+  },
+  {
+    "name": "liblzma5",
+    "url": "https://archive.debian.org/debian/pool/main/x/xz-utils/liblzma5_5.2.4-1+deb10u1_arm64.deb",
+    "sha256": "sha256-3IH+bBlfDSSYsgQ7vBRD2IHXGW28RF8FLdWPV0s6uVo="
+  },
+  {
+    "name": "liblzma-dev",
+    "url": "https://archive.debian.org/debian/pool/main/x/xz-utils/liblzma-dev_5.2.4-1+deb10u1_arm64.deb",
+    "sha256": "sha256-gAIROirq0Jpr9nAqRKMwJCGSV/Og6YawONZokMWbPJ0="
+  },
+  {
+    "name": "libmount1",
+    "url": "https://archive.debian.org/debian/pool/main/u/util-linux/libmount1_2.33.1-0.1_arm64.deb",
+    "sha256": "sha256-BHdVT5h0LsKpPTgS5e7oEm05uZo/4/JSGQGAlF9H+bc="
+  },
+  {
+    "name": "libmount-dev",
+    "url": "https://archive.debian.org/debian/pool/main/u/util-linux/libmount-dev_2.33.1-0.1_arm64.deb",
+    "sha256": "sha256-6zuIfgdJbMLZZHjb0b7/8A6EbpqZ8QmgPrCyuFQIFt8="
+  },
+  {
+    "name": "libopengl0",
+    "url": "https://archive.debian.org/debian/pool/main/libg/libglvnd/libopengl0_1.1.0-1_arm64.deb",
+    "sha256": "sha256-pjFJCJ19Xet1DWvq1Jo6PCrzWtIpiKQUw732ZYyO7QA="
+  },
+  {
+    "name": "libpango-1.0-0",
+    "url": "https://archive.debian.org/debian/pool/main/p/pango1.0/libpango-1.0-0_1.42.4-8~deb10u1_arm64.deb",
+    "sha256": "sha256-3A2Rgfy+51t9yRVvpwJJipUoofa2d6/vcv3JQ+k+bFY="
+  },
+  {
+    "name": "libpango1.0-dev",
+    "url": "https://archive.debian.org/debian/pool/main/p/pango1.0/libpango1.0-dev_1.42.4-8~deb10u1_arm64.deb",
+    "sha256": "sha256-T6z9RrZxxlXz57F+BjQ5DhTIpoAL8eodQJ+nLm6Q4Lc="
+  },
+  {
+    "name": "libpangocairo-1.0-0",
+    "url": "https://archive.debian.org/debian/pool/main/p/pango1.0/libpangocairo-1.0-0_1.42.4-8~deb10u1_arm64.deb",
+    "sha256": "sha256-v80O5nZch6X1ZLQ88FSqkMencoWNILfolDQY+K0xOYs="
+  },
+  {
+    "name": "libpangoft2-1.0-0",
+    "url": "https://archive.debian.org/debian/pool/main/p/pango1.0/libpangoft2-1.0-0_1.42.4-8~deb10u1_arm64.deb",
+    "sha256": "sha256-V7IdmqTP2N2R1yZBmgKyKMtTBwHf+d3TN+Ywy4V0XA4="
+  },
+  {
+    "name": "libpangoxft-1.0-0",
+    "url": "https://archive.debian.org/debian/pool/main/p/pango1.0/libpangoxft-1.0-0_1.42.4-8~deb10u1_arm64.deb",
+    "sha256": "sha256-tUPDxF/+4fWpniApYtSQODldxE3BZ689ZTO3mCsP3VQ="
+  },
+  {
+    "name": "libpciaccess0",
+    "url": "https://archive.debian.org/debian/pool/main/libp/libpciaccess/libpciaccess0_0.14-1_arm64.deb",
+    "sha256": "sha256-BUnT4iPwGNMALGbOcJStuuYH2MllPfE3ENQs/9PjboU="
+  },
+  {
+    "name": "libpciaccess-dev",
+    "url": "https://archive.debian.org/debian/pool/main/libp/libpciaccess/libpciaccess-dev_0.14-1_arm64.deb",
+    "sha256": "sha256-Hx9dIKEXl+PVqNRKmMeD2R55tAKGni9Nekwen1Z0Vt4="
+  },
+  {
+    "name": "libpcre2-8-0",
+    "url": "https://archive.debian.org/debian/pool/main/p/pcre2/libpcre2-8-0_10.32-5_arm64.deb",
+    "sha256": "sha256-RiZ+xXZhz+5yuSiduFP47JOG5u8ilrSQo4B/aHKcqRg="
+  },
+  {
+    "name": "libpcre2-dev",
+    "url": "https://archive.debian.org/debian/pool/main/p/pcre2/libpcre2-dev_10.32-5_arm64.deb",
+    "sha256": "sha256-477PWjE7KIkb1sneEhfMQ/cCDnT9jPtAnx1ypiAFC0c="
+  },
+  {
+    "name": "libpcre3",
+    "url": "https://archive.debian.org/debian/pool/main/p/pcre3/libpcre3_8.39-12_arm64.deb",
+    "sha256": "sha256-z5WapyJmaCfsSYolXsFNIN1Ow4WURrsz3lMyQXWI/58="
+  },
+  {
+    "name": "libpcre3-dev",
+    "url": "https://archive.debian.org/debian/pool/main/p/pcre3/libpcre3-dev_8.39-12_arm64.deb",
+    "sha256": "sha256-0wkTesVXAixZBdYgrqBkkEZl+HJPRGIerxbEOhBsXps="
+  },
+  {
+    "name": "libpixman-1-0",
+    "url": "https://archive.debian.org/debian/pool/main/p/pixman/libpixman-1-0_0.36.0-1_arm64.deb",
+    "sha256": "sha256-DwlQfJOA2XyKERisbgTbkoDj3FFAZg1ZZhDxL8NSx7Y="
+  },
+  {
+    "name": "libpixman-1-dev",
+    "url": "https://archive.debian.org/debian/pool/main/p/pixman/libpixman-1-dev_0.36.0-1_arm64.deb",
+    "sha256": "sha256-lb268P5EL/bXPo5yHKCc7lP7TS/myOV3w4F4jp1D83c="
+  },
+  {
+    "name": "libpng16-16",
+    "url": "https://archive.debian.org/debian/pool/main/libp/libpng1.6/libpng16-16_1.6.36-6_arm64.deb",
+    "sha256": "sha256-1U88HbsSTawjdNP2e2qiiMMxy081L5JX8xj8m929hpg="
+  },
+  {
+    "name": "libpng-dev",
+    "url": "https://archive.debian.org/debian/pool/main/libp/libpng1.6/libpng-dev_1.6.36-6_arm64.deb",
+    "sha256": "sha256-Ike63wPU838iYMQwyiy2aCMpJwnh5tGf5rVUrTcQvhw="
+  },
+  {
+    "name": "librest-0.7-0",
+    "url": "https://archive.debian.org/debian/pool/main/libr/librest/librest-0.7-0_0.8.1-1_arm64.deb",
+    "sha256": "sha256-jAP+4gISaZy+CvujMOxFqn0X9ll3lOabs0N5SX2UxGo="
+  },
+  {
+    "name": "libseccomp2",
+    "url": "https://archive.debian.org/debian/pool/main/libs/libseccomp/libseccomp2_2.3.3-4_arm64.deb",
+    "sha256": "sha256-AsmKc6cZV4eYsJQw1qGeKKxKMFuEoI0ZTgOReKfLNjE="
+  },
+  {
+    "name": "libselinux1",
+    "url": "https://archive.debian.org/debian/pool/main/libs/libselinux/libselinux1_2.8-1+b1_arm64.deb",
+    "sha256": "sha256-lRSP9T12BOT2H2o3wdZ2iztVzWigV7DPjRSBL5G7dQQ="
+  },
+  {
+    "name": "libselinux1-dev",
+    "url": "https://archive.debian.org/debian/pool/main/libs/libselinux/libselinux1-dev_2.8-1+b1_arm64.deb",
+    "sha256": "sha256-ttmWmDZxBA4nVeyjf9XvX93TiXZyt44zAtasbzsXEjw="
+  },
+  {
+    "name": "libsepol1",
+    "url": "https://archive.debian.org/debian/pool/main/libs/libsepol/libsepol1_2.8-1_arm64.deb",
+    "sha256": "sha256-sIsleC2SAvC4m88YpT+KyvP6bxOR7u6HCZ4u5W/hCIc="
+  },
+  {
+    "name": "libsm6",
+    "url": "https://archive.debian.org/debian/pool/main/libs/libsm/libsm6_1.2.3-1_arm64.deb",
+    "sha256": "sha256-SHE2GoO3lS7tEulRbltUdcj/webi0ShCNzyC8pHoIXg="
+  },
+  {
+    "name": "libsm-dev",
+    "url": "https://archive.debian.org/debian/pool/main/libs/libsm/libsm-dev_1.2.3-1_arm64.deb",
+    "sha256": "sha256-UqFe6Tk5rXGJDWqRWF0rni6yMskXgmnAQnyucCUfImw="
+  },
+  {
+    "name": "libssl1.1",
+    "url": "https://archive.debian.org/debian/pool/main/o/openssl/libssl1.1_1.1.1n-0+deb10u3_arm64.deb",
+    "sha256": "sha256-nW21a/F+wHlnXg9vd3KvZbgy3TrVXALFQJRiz2sFLiM="
+  },
+  {
+    "name": "libstartup-notification0",
+    "url": "https://archive.debian.org/debian/pool/main/s/startup-notification/libstartup-notification0_0.12-6_arm64.deb",
+    "sha256": "sha256-0D8K0ceQ1x6hC5/kvUiyjJEYr4x1akmBW/uBfrKNM9Y="
+  },
+  {
+    "name": "libstartup-notification0-dev",
+    "url": "https://archive.debian.org/debian/pool/main/s/startup-notification/libstartup-notification0-dev_0.12-6_arm64.deb",
+    "sha256": "sha256-Duw3nMMN4vetykCbp/RAy4UIMUfJkqFJM3k5gu8IxTo="
+  },
+  {
+    "name": "libsystemd0",
+    "url": "https://archive.debian.org/debian/pool/main/s/systemd/libsystemd0_241-7~deb10u8_arm64.deb",
+    "sha256": "sha256-E9K5e7q9drmd+BXJ5zw1AquQgfo7uIXq5ZNwsOKQ79U="
+  },
+  {
+    "name": "libtiff5",
+    "url": "https://archive.debian.org/debian/pool/main/t/tiff/libtiff5_4.1.0+git191117-2~deb10u4_arm64.deb",
+    "sha256": "sha256-mIhBzB76GrJ6yvAa+P4baTGhL5G5TaoPrf0YnQk8TYc="
+  },
+  {
+    "name": "libtiff-dev",
+    "url": "https://archive.debian.org/debian/pool/main/t/tiff/libtiff-dev_4.1.0+git191117-2~deb10u4_arm64.deb",
+    "sha256": "sha256-AuBFtQ+JfmzHCMGey3qv9CWv78h3Rcclmd6WxUnO/KE="
+  },
+  {
+    "name": "libudev1",
+    "url": "https://archive.debian.org/debian/pool/main/s/systemd/libudev1_241-7~deb10u8_arm64.deb",
+    "sha256": "sha256-Smc+Uk09g9M76UiNly5ghAT8nkY4tNhn/ELM/13bGV0="
+  },
+  {
+    "name": "libudev-dev",
+    "url": "https://archive.debian.org/debian/pool/main/s/systemd/libudev-dev_241-7~deb10u8_arm64.deb",
+    "sha256": "sha256-dwOdxduglQ7qkD468aWPCXNzFzhRPQLbNvfJwW0a3nE="
+  },
+  {
+    "name": "libuuid1",
+    "url": "https://archive.debian.org/debian/pool/main/u/util-linux/libuuid1_2.33.1-0.1_arm64.deb",
+    "sha256": "sha256-KNOmm64b3JGF5w2XIUdzpWOn+KcmgrLe7zlKT3ycebg="
+  },
+  {
+    "name": "libwayland-bin",
+    "url": "https://archive.debian.org/debian/pool/main/w/wayland/libwayland-bin_1.16.0-1_arm64.deb",
+    "sha256": "sha256-JMIV4lkT0nzB+yV7M1R2/8sUJnvmMi9Wg5bMDBbrD8k="
+  },
+  {
+    "name": "libwayland-client0",
+    "url": "https://archive.debian.org/debian/pool/main/w/wayland/libwayland-client0_1.16.0-1_arm64.deb",
+    "sha256": "sha256-XKKlSfnKUQFqFVInWD7k4buPoGU4T1xmS9KGVlIgysk="
+  },
+  {
+    "name": "libwayland-cursor0",
+    "url": "https://archive.debian.org/debian/pool/main/w/wayland/libwayland-cursor0_1.16.0-1_arm64.deb",
+    "sha256": "sha256-7VFTK/NpXokIPLHKn8iLw4tY9OwUR4pnsE2urUw2Lmk="
+  },
+  {
+    "name": "libwayland-dev",
+    "url": "https://archive.debian.org/debian/pool/main/w/wayland/libwayland-dev_1.16.0-1_arm64.deb",
+    "sha256": "sha256-cyuedEArzYhLwFNc+eid9U6PekF9LV5VOoLkRPJRkHs="
+  },
+  {
+    "name": "libwayland-egl1",
+    "url": "https://archive.debian.org/debian/pool/main/w/wayland/libwayland-egl1_1.16.0-1_arm64.deb",
+    "sha256": "sha256-TCF8ZAQ+JU8DhdoWfdv/kzL557a6zBoln2+UAIWC2/g="
+  },
+  {
+    "name": "libwayland-egl-backend-dev",
+    "url": "https://archive.debian.org/debian/pool/main/w/wayland/libwayland-egl-backend-dev_1.16.0-1_arm64.deb",
+    "sha256": "sha256-ucymcM5qOwF/xAu5+Fjv/7iSPDuc5Sg8tCyNogHRq2w="
+  },
+  {
+    "name": "libwayland-server0",
+    "url": "https://archive.debian.org/debian/pool/main/w/wayland/libwayland-server0_1.16.0-1_arm64.deb",
+    "sha256": "sha256-JrBnbMdHHskouO5RBFQ5CLp6iCZoe6PGIEV6CvEovH0="
+  },
+  {
+    "name": "libx11-6",
+    "url": "https://archive.debian.org/debian/pool/main/libx/libx11/libx11-6_1.6.7-1+deb10u2_arm64.deb",
+    "sha256": "sha256-omTGX6X1LXs1uqCThDbZb02z2s3SYzFVJSOOCug4xuU="
+  },
+  {
+    "name": "libx11-dev",
+    "url": "https://archive.debian.org/debian/pool/main/libx/libx11/libx11-dev_1.6.7-1+deb10u2_arm64.deb",
+    "sha256": "sha256-eCNJGI1xz52hdC5NvJI9MYBuCmK9UB3hSkQblNAEj3Q="
+  },
+  {
+    "name": "libx11-xcb1",
+    "url": "https://archive.debian.org/debian/pool/main/libx/libx11/libx11-xcb1_1.6.7-1+deb10u2_arm64.deb",
+    "sha256": "sha256-nRLshgqMn7YCWaUH983NAU7YSjYhphAq++wm2KVLU2Y="
+  },
+  {
+    "name": "libx11-xcb-dev",
+    "url": "https://archive.debian.org/debian/pool/main/libx/libx11/libx11-xcb-dev_1.6.7-1+deb10u2_arm64.deb",
+    "sha256": "sha256-W7PR3Q2edx31sOWZLwSchk+zlhoko81W8zay50m6Kn4="
+  },
+  {
+    "name": "libxau6",
+    "url": "https://archive.debian.org/debian/pool/main/libx/libxau/libxau6_1.0.8-1+b2_arm64.deb",
+    "sha256": "sha256-jNUyVQhPFXBamY7hmdAbW0RWilPwGggikZ9szLVuZwM="
+  },
+  {
+    "name": "libxau-dev",
+    "url": "https://archive.debian.org/debian/pool/main/libx/libxau/libxau-dev_1.0.8-1+b2_arm64.deb",
+    "sha256": "sha256-PasiDrlGUQUvXXy1U9n/N1e+lbLRFvFjULcjOqfIuG0="
+  },
+  {
+    "name": "libxcb1",
+    "url": "https://archive.debian.org/debian/pool/main/libx/libxcb/libxcb1_1.13.1-2_arm64.deb",
+    "sha256": "sha256-OvU5aTJfuGE7mgG1y0ge+wF/2MCj0B7BvEuOj3dzKlQ="
+  },
+  {
+    "name": "libxcb1-dev",
+    "url": "https://archive.debian.org/debian/pool/main/libx/libxcb/libxcb1-dev_1.13.1-2_arm64.deb",
+    "sha256": "sha256-8ziWDqPR9W3NyaOMGwM3lKZAZP++LLJWN9TxvScfKcA="
+  },
+  {
+    "name": "libxcomposite1",
+    "url": "https://archive.debian.org/debian/pool/main/libx/libxcomposite/libxcomposite1_0.4.4-2_arm64.deb",
+    "sha256": "sha256-SrnIXdwd9i60UHd29M3q8nmUoflVOU0Aq1tvAXX7emo="
+  },
+  {
+    "name": "libxcomposite-dev",
+    "url": "https://archive.debian.org/debian/pool/main/libx/libxcomposite/libxcomposite-dev_0.4.4-2_arm64.deb",
+    "sha256": "sha256-q+x4kaWDhZMgLxq4OmDI6Z6D7E24XxS1U2IfTFH2PfQ="
+  },
+  {
+    "name": "libxcursor1",
+    "url": "https://archive.debian.org/debian/pool/main/libx/libxcursor/libxcursor1_1.1.15-2_arm64.deb",
+    "sha256": "sha256-H//tr8wWtMTF5/0UxbC0zlIeaGeFDZbrB8Dm8sIgTvs="
+  },
+  {
+    "name": "libxcursor-dev",
+    "url": "https://archive.debian.org/debian/pool/main/libx/libxcursor/libxcursor-dev_1.1.15-2_arm64.deb",
+    "sha256": "sha256-WzXCWbSl/j63MM+GOHGfLDetZnelF3RTPlFEoBUP7HY="
+  },
+  {
+    "name": "libxdamage1",
+    "url": "https://archive.debian.org/debian/pool/main/libx/libxdamage/libxdamage1_1.1.4-3+b3_arm64.deb",
+    "sha256": "sha256-Lj3Rz5iRjgF6KcywxMONhyJO3B2yMXnaU29CBJmOkDk="
+  },
+  {
+    "name": "libxdamage-dev",
+    "url": "https://archive.debian.org/debian/pool/main/libx/libxdamage/libxdamage-dev_1.1.4-3+b3_arm64.deb",
+    "sha256": "sha256-uGI4VBoNRXu7VH1zt7R5bQjleRbAEyLqBElYwdRxJeM="
+  },
+  {
+    "name": "libxdmcp6",
+    "url": "https://archive.debian.org/debian/pool/main/libx/libxdmcp/libxdmcp6_1.1.2-3_arm64.deb",
+    "sha256": "sha256-6SVprDMkcmGqCa363DTO05lKwwHPi1jeQVotXb8VzPw="
+  },
+  {
+    "name": "libxdmcp-dev",
+    "url": "https://archive.debian.org/debian/pool/main/libx/libxdmcp/libxdmcp-dev_1.1.2-3_arm64.deb",
+    "sha256": "sha256-b9C8UfOk5rf5RPJPFVJKTEumiksKoTbBi9uWotNpiPI="
+  },
+  {
+    "name": "libxext6",
+    "url": "https://archive.debian.org/debian/pool/main/libx/libxext/libxext6_1.3.3-1+b2_arm64.deb",
+    "sha256": "sha256-blromG4V8cKwW76lfaWiXwZJZG3QArG+CsAwGYCv1+w="
+  },
+  {
+    "name": "libxext-dev",
+    "url": "https://archive.debian.org/debian/pool/main/libx/libxext/libxext-dev_1.3.3-1+b2_arm64.deb",
+    "sha256": "sha256-aQ3BJ48H6RFUEkJnpDEbPTzyWyCUCY57N0RqLp6aQQ0="
+  },
+  {
+    "name": "libxfixes3",
+    "url": "https://archive.debian.org/debian/pool/main/libx/libxfixes/libxfixes3_5.0.3-1_arm64.deb",
+    "sha256": "sha256-53Nz76CODFULl5ojOtuzHI2aAWgkKNWGBaQBnBx5iSY="
+  },
+  {
+    "name": "libxfixes-dev",
+    "url": "https://archive.debian.org/debian/pool/main/libx/libxfixes/libxfixes-dev_5.0.3-1_arm64.deb",
+    "sha256": "sha256-ZVKtE2yWORbhJC54/OdmFZw6IfdelA32jdFZHG3Ik9A="
+  },
+  {
+    "name": "libxft2",
+    "url": "https://archive.debian.org/debian/pool/main/x/xft/libxft2_2.3.2-2_arm64.deb",
+    "sha256": "sha256-aUEXa8x4vwLRY1V1qMxyan6wYo2Edu/Kdgdxi9wfUMU="
+  },
+  {
+    "name": "libxft-dev",
+    "url": "https://archive.debian.org/debian/pool/main/x/xft/libxft-dev_2.3.2-2_arm64.deb",
+    "sha256": "sha256-CjqIDz+rDvEJxdoMjA2N5aeExeZort3Wv8JcbUNAiYc="
+  },
+  {
+    "name": "libxi6",
+    "url": "https://archive.debian.org/debian/pool/main/libx/libxi/libxi6_1.7.9-1_arm64.deb",
+    "sha256": "sha256-tMvFOFAhNVwgQw/HI0BhPC+ZeXPVmxrDqt4Fsu4EBcg="
+  },
+  {
+    "name": "libxi-dev",
+    "url": "https://archive.debian.org/debian/pool/main/libx/libxi/libxi-dev_1.7.9-1_arm64.deb",
+    "sha256": "sha256-8PvubW5LRzfxP/Vp15NPcI/7nsk1w0TVvhqFEdksJpc="
+  },
+  {
+    "name": "libxinerama1",
+    "url": "https://archive.debian.org/debian/pool/main/libx/libxinerama/libxinerama1_1.1.4-2_arm64.deb",
+    "sha256": "sha256-u975XQJfuAR5elsacfMZ9fdMARTpDXWbPp7PdlREJZg="
+  },
+  {
+    "name": "libxinerama-dev",
+    "url": "https://archive.debian.org/debian/pool/main/libx/libxinerama/libxinerama-dev_1.1.4-2_arm64.deb",
+    "sha256": "sha256-P//PWlY37d7H0DtPn0ZLf3ik174CMPRNGEvJW2BuvBU="
+  },
+  {
+    "name": "libxkbcommon0",
+    "url": "https://archive.debian.org/debian/pool/main/libx/libxkbcommon/libxkbcommon0_0.8.2-1_arm64.deb",
+    "sha256": "sha256-FWWRV1j77080vjyhnDzuFEesOEjBroTr1b8TkAH5RgQ="
+  },
+  {
+    "name": "libxkbcommon-dev",
+    "url": "https://archive.debian.org/debian/pool/main/libx/libxkbcommon/libxkbcommon-dev_0.8.2-1_arm64.deb",
+    "sha256": "sha256-CnVv9U4zQujjh7eXRbFWrvykbT1spTmjzhoeTxFPkrs="
+  },
+  {
+    "name": "libxkbcommon-x11-0",
+    "url": "https://archive.debian.org/debian/pool/main/libx/libxkbcommon/libxkbcommon-x11-0_0.8.2-1_arm64.deb",
+    "sha256": "sha256-OBDf414dqbFEdb60uqrnILQSlQTzDK13qJ8wx5UHK6A="
+  },
+  {
+    "name": "libxrandr2",
+    "url": "https://archive.debian.org/debian/pool/main/libx/libxrandr/libxrandr2_1.5.1-1_arm64.deb",
+    "sha256": "sha256-BMnFm6HpZI4OyA1m+jS6t78DmCLzLrMfcGZWloBS6RU="
+  },
+  {
+    "name": "libxrandr-dev",
+    "url": "https://archive.debian.org/debian/pool/main/libx/libxrandr/libxrandr-dev_1.5.1-1_arm64.deb",
+    "sha256": "sha256-kTLn8xDHvbfPBPwe1nbQmAbagQiCoCSOdO+5pDJBSeg="
+  },
+  {
+    "name": "libxrender1",
+    "url": "https://archive.debian.org/debian/pool/main/libx/libxrender/libxrender1_0.9.10-1_arm64.deb",
+    "sha256": "sha256-/K5pkAtZnnsxsx6vogOhhOADdq3h0vdPmz17JJkVc6A="
+  },
+  {
+    "name": "libxrender-dev",
+    "url": "https://archive.debian.org/debian/pool/main/libx/libxrender/libxrender-dev_0.9.10-1_arm64.deb",
+    "sha256": "sha256-pO707G9Vu3jqN6aSES3fqKlj1SLF9jnKvSvF1yjOOlQ="
+  },
+  {
+    "name": "libxtst6",
+    "url": "https://archive.debian.org/debian/pool/main/libx/libxtst/libxtst6_1.2.3-1_arm64.deb",
+    "sha256": "sha256-ESSsPGgPHUVKZ2Nm2WVk/7jIkkIUx3a1FJZfnE+9Sco="
+  },
+  {
+    "name": "libxtst-dev",
+    "url": "https://archive.debian.org/debian/pool/main/libx/libxtst/libxtst-dev_1.2.3-1_arm64.deb",
+    "sha256": "sha256-O7eMo8tBI2qNOPx+Nvlh8RloVhGuR95L4RENHF42B+A="
+  },
+  {
+    "name": "libxxf86vm1",
+    "url": "https://archive.debian.org/debian/pool/main/libx/libxxf86vm/libxxf86vm1_1.1.4-1+b2_arm64.deb",
+    "sha256": "sha256-ikgmdyrEgIBNa413akEw2VJgwDa5shjeTIoPB+ucW7o="
+  },
+  {
+    "name": "libxxf86vm-dev",
+    "url": "https://archive.debian.org/debian/pool/main/libx/libxxf86vm/libxxf86vm-dev_1.1.4-1+b2_arm64.deb",
+    "sha256": "sha256-EJUNFqxDbK591+QVP7o8v9+qP9SFDM1zLqPUYJczZl0="
+  },
+  {
+    "name": "linux-libc-dev",
+    "url": "https://archive.debian.org/debian/pool/main/l/linux/linux-libc-dev_4.19.249-2_arm64.deb",
+    "sha256": "sha256-6aktcdYmVfZzQzw0WgP+yqQpL5PGVyso/T0W3P0cx/Y="
+  },
+  {
+    "name": "mesa-common-dev",
+    "url": "https://archive.debian.org/debian/pool/main/m/mesa/mesa-common-dev_18.3.6-2+deb10u1_arm64.deb",
+    "sha256": "sha256-iQStgeBEGmGnqHrAgoySDNFxpu9FOLOS8OoBdZUPEYQ="
+  },
+  {
+    "name": "ocl-icd-libopencl1",
+    "url": "https://archive.debian.org/debian/pool/main/o/ocl-icd/ocl-icd-libopencl1_2.2.12-2_arm64.deb",
+    "sha256": "sha256-P6Dla/KVrnnHxaeCsKfG/q9GBVTRrWqUN1bAsJ2ekUo="
+  },
+  {
+    "name": "ocl-icd-opencl-dev",
+    "url": "https://archive.debian.org/debian/pool/main/o/ocl-icd/ocl-icd-opencl-dev_2.2.12-2_arm64.deb",
+    "sha256": "sha256-cRNxIG4EkNfd5DPPqYaINCF1QmAxazg2jCztCyOGmho="
+  },
+  {
+    "name": "opencl-c-headers",
+    "url": "https://archive.debian.org/debian/pool/main/k/khronos-opencl-headers/opencl-c-headers_2.2~2019.01.17-g49f07d3-1_all.deb",
+    "sha256": "sha256-lYPQnZrbPucncKDy8JrI/IEbIkM5mL4gPBRRd4wh0kA="
+  },
+  {
+    "name": "shared-mime-info",
+    "url": "https://archive.debian.org/debian/pool/main/s/shared-mime-info/shared-mime-info_1.10-1_arm64.deb",
+    "sha256": "sha256-T88F6hE3s2CvvaDg3vXHEtm4qX/TESuoHlkOJVqZXic="
+  },
+  {
+    "name": "uuid-dev",
+    "url": "https://archive.debian.org/debian/pool/main/u/util-linux/uuid-dev_2.33.1-0.1_arm64.deb",
+    "sha256": "sha256-gzJY3YtRgFHPIL+zqLgNN/FnBdH7jV/4nAihZ0PsXQw="
+  },
+  {
+    "name": "wayland-protocols",
+    "url": "https://archive.debian.org/debian/pool/main/w/wayland-protocols/wayland-protocols_1.17-1_all.deb",
+    "sha256": "sha256-EoO+YXCD9/OMiG99i94o73LQ12zpNjylNemtdpabBYM="
+  },
+  {
+    "name": "x11proto-dev",
+    "url": "https://archive.debian.org/debian/pool/main/x/xorgproto/x11proto-dev_2018.4-4_all.deb",
+    "sha256": "sha256-qgI3Rn/LXMq/apP8Gfrk122Mbfv55Ent2l9jk+UNhnQ="
+  },
+  {
+    "name": "xkb-data",
+    "url": "https://archive.debian.org/debian/pool/main/x/xkeyboard-config/xkb-data_2.26-2_all.deb",
+    "sha256": "sha256-F9IVZMlA3Y2J4KG2nW/qAUTQV+RpiQI3j1yDUAYSt3k="
+  },
+  {
+    "name": "xorg-sgml-doctools",
+    "url": "https://archive.debian.org/debian/pool/main/x/xorg-sgml-doctools/xorg-sgml-doctools_1.11-1_all.deb",
+    "sha256": "sha256-NZ3Ha/exn7vbC548owd+QVtbnKj/hRYszIifmXRJNgA="
+  },
+  {
+    "name": "zlib1g",
+    "url": "https://archive.debian.org/debian/pool/main/z/zlib/zlib1g_1.2.11.dfsg-1+deb10u1_arm64.deb",
+    "sha256": "sha256-77aEt3OMy+O84qcsGPEkIksa/h1yQBHyHyKVta+/dLI="
+  },
+  {
+    "name": "zlib1g-dev",
+    "url": "https://archive.debian.org/debian/pool/main/z/zlib/zlib1g-dev_1.2.11.dfsg-1+deb10u1_arm64.deb",
+    "sha256": "sha256-UMF7OqtGuv0mRshcIii4mf0Hbb3RzxKJ0fJ5iaKKgZ8="
+  }
+]

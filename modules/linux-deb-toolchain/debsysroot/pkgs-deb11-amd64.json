@@ -1,5 +1,4 @@
 [
-
   {
     "name": "adwaita-icon-theme",
     "url": "https://deb.debian.org/debian/pool/main/a/adwaita-icon-theme/adwaita-icon-theme_3.38.0-1_all.deb",
@@ -259,11 +258,6 @@
     "name": "libfontconfig1-dev",
     "url": "https://deb.debian.org/debian/pool/main/f/fontconfig/libfontconfig1-dev_2.13.1-4.2_amd64.deb",
     "sha256": "sha256-oZUCkS+1fB6ch++9e3ra1/HBt5MWRYDd8CFo8M/sWfs="
-  },
-  {
-    "name": "libfontconfig-dev",
-    "url": "https://deb.debian.org/debian/pool/main/f/fontconfig/libfontconfig-dev_2.13.1-4.2_amd64.deb",
-    "sha256": "sha256-dlXUI47n5s7RNQEAbSCYbL+f8IRUpOUC1ao5n4PiiHY="
   },
   {
     "name": "libfreetype6",
@@ -939,5 +933,10 @@
     "name": "zlib1g-dev",
     "url": "https://deb.debian.org/debian/pool/main/z/zlib/zlib1g-dev_1.2.11.dfsg-2+deb11u2_amd64.deb",
     "sha256": "sha256-9J/ISYcMTmT+0nlHIoQe6VDBeI9/6Qs6CR5qCYpGzTM="
+  },
+  {
+    "name": "libfontconfig-dev",
+    "url": "https://deb.debian.org/debian/pool/main/f/fontconfig/libfontconfig-dev_2.13.1-4.2_amd64.deb",
+    "sha256": "sha256-dlXUI47n5s7RNQEAbSCYbL+f8IRUpOUC1ao5n4PiiHY="
   }
 ]
