@@ -240,11 +240,6 @@
     "sha256": "sha256-shz90SrfbKxK8yDCSF+2Kope3G+XaLwiiP1ob0+m398="
   },
   {
-    "name": "libfreetype6-dev",
-    "url": "https://deb.debian.org/debian/pool/main/f/freetype/libfreetype6-dev_2.10.4+dfsg-1+deb11u1_amd64.deb",
-    "sha256": "sha256-yhMF/H42aPWR/8Dnk1accHbc9tR2XYz1zedIX8cRC+s="
-  },
-  {
     "name": "libgdk-pixbuf2.0-0",
     "url": "https://deb.debian.org/debian/pool/main/g/gdk-pixbuf-xlib/libgdk-pixbuf2.0-0_2.40.2-2_amd64.deb",
     "sha256": "sha256-LhmIEF3uhZf7s1ausEzJ4vl3RibQ0tvRiYTTpQDwlsY="
@@ -928,6 +923,11 @@
     "name": "libfontconfig-dev",
     "url": "https://deb.debian.org/debian/pool/main/f/fontconfig/libfontconfig-dev_2.13.1-4.2_amd64.deb",
     "sha256": "sha256-dlXUI47n5s7RNQEAbSCYbL+f8IRUpOUC1ao5n4PiiHY="
+  },
+  {
+    "name": "libfreetype-dev",
+    "url": "https://deb.debian.org/debian/pool/main/f/freetype/libfreetype-dev_2.10.4+dfsg-1+deb11u1_amd64.deb",
+    "sha256": "sha256-8PXs5McPrWjIvb480Jpcn7fWESdm8NlkOaRamuGq82M="
   },
   {
     "name": "libgl-dev",
