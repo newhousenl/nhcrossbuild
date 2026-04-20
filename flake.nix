@@ -11,6 +11,7 @@
       makeDevShell =
         {
           system,
+          debianrelease ? 10,
           extraToolchainContent ? "",
           nativeBuildInputs ? [ ],
         }:
@@ -34,13 +35,15 @@
             hash = llvmhash;
           };
 
-          toolchain_linux = pkgs.callPackage ./modules/linux-deb10-toolchain/default.nix {
+          toolchain_linux = pkgs.callPackage ./modules/linux-deb-toolchain/default.nix {
             inherit
               llvmPackagesToUse
               llvmversion
               llvmsrc
               llvmfullversion
               ;
+            debianversion = debianrelease;
+            arch = "amd64";
           };
           toolchain_macos = pkgs.callPackage ./modules/macos-toolchain/default.nix {
             inherit
@@ -128,7 +131,12 @@
           ]
           (system: {
             default = makeDevShell {
-              inherit system; # nixpkgs;
+              inherit system;
+              debianrelease = 10;
+            };
+            debian11 = makeDevShell {
+              inherit system;
+              debianrelease = 11;
             };
           });
     };
