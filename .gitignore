@@ -1,3 +1,4 @@
 gcroot
 example/build
 example/assets
+.DS_Store
