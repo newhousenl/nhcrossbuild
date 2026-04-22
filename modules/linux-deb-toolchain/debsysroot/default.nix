@@ -57,6 +57,5 @@ stdenv.mkDerivation {
 
   meta = with lib; {
     description = "Debian ${toString debianversion} sysroot for cross-compilation";
-    platforms = platforms.linux;
   };
 }
