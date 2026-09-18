@@ -6,17 +6,25 @@
   llvmversion,
   llvmsrc,
   llvmfullversion,
-  lib,
   cdrkit,
   writeText,
-  cctools,
-  ld64,
 }:
 let
   macossdk = callPackage ./macossdk.nix { };
+  llvmTools = llvmPackagesToUse.bintools-unwrapped;
+  llvmLipo = stdenv.mkDerivation {
+    pname = "llvm-lipo-in-path";
+    version = llvmfullversion;
+    dontUnpack = true;
+    installPhase = ''
+      mkdir -p $out/bin
+      ln -s ${llvmTools}/bin/llvm-lipo $out/bin/lipo
+    '';
+  };
   compiler-rt-macos = callPackage ./compiler-rt-macos.nix {
     inherit
       macossdk
+      llvmLipo
       llvmPackagesToUse
       llvmversion
       llvmsrc
@@ -24,34 +32,32 @@ let
       ;
   };
   libdmg-hfsplus = callPackage ./libdmg-hfsplus.nix { };
-  cctools-port = callPackage ./cctools-port/cctools-port.nix { };
-  #cctools-touse = cctools-port;
-  cctools-touse = if stdenv.isDarwin then cctools else cctools-port;
-  lipo-in-path = stdenv.mkDerivation {
-    # just create a symlink to the lipo binary in the cctools-port
-    pname = "lipo-in-path";
-    version = "1.0";
-    dontUnpack = true;
-    installPhase = ''
-      mkdir -p $out/bin
-      ln -s ${cctools-touse}/bin/lipo $out/bin/lipo
-    '';
-  };
-  ldpackage = if stdenv.isDarwin then ld64 else cctools-port;
 
   # C-only toolchain for building libc++ (bootstrap, similar to Linux approach)
   cmake-macos-toolchaintxt-without-libcpp =
     { dualArchitecture }:
     let
-      systemprocessor = stdenv.hostPlatform.linuxArch;
+      systemprocessor = if stdenv.hostPlatform.isAarch64 then "arm64" else "x86_64";
+      deploymentFlags =
+        if dualArchitecture then
+          "-Xarch_x86_64 -mmacos-version-min=10.15 -Xarch_arm64 -mmacos-version-min=11.0"
+        else if systemprocessor == "arm64" then
+          "-mmacos-version-min=11.0"
+        else
+          "-mmacos-version-min=10.15";
+      platformVersionFlags =
+        if dualArchitecture then
+          "-Xarch_x86_64 -Wl,-platform_version,macos,10.15,${macossdk.version} -Xarch_arm64 -Wl,-platform_version,macos,11.0,${macossdk.version}"
+        else if systemprocessor == "arm64" then
+          "-Wl,-platform_version,macos,11.0,${macossdk.version}"
+        else
+          "-Wl,-platform_version,macos,10.15,${macossdk.version}";
       c_flags =
-        (if stdenv.isDarwin then "" else "-mlinker-version=951")
-        + " -mmacos-version-min=10.15"
+        "${deploymentFlags}"
         + " -target ${systemprocessor}-apple-darwin -resource-dir ${llvmPackagesToUse.clang-unwrapped.lib}/lib/clang/${llvmversion}";
-        #+ " -fuse-lipo=cctools-lipo";
       rtosxlib = "${compiler-rt-macos}/lib/macos/libclang_rt.osx.a";
       cmakeOsxArchs = if dualArchitecture then "x86_64;arm64" else systemprocessor;
-      linkerflags = "-fuse-ld=ld64 --ld-path=${ldpackage}/bin/ld ${rtosxlib}";
+      linkerflags = "-fuse-ld=${llvmPackagesToUse.lld}/bin/ld64.lld ${platformVersionFlags} ${rtosxlib}";
     in
     ''
       set(CMAKE_SYSTEM_NAME Darwin)
@@ -67,11 +73,23 @@ let
 
       set(CMAKE_C_COMPILER "${llvmPackagesToUse.clang-unwrapped}/bin/clang")
       set(CMAKE_CXX_COMPILER "${llvmPackagesToUse.clang-unwrapped}/bin/clang++")
-      set(CMAKE_AR "${cctools-touse}/bin/ar")
-      set(CMAKE_RANLIB "${cctools-touse}/bin/ranlib")
-      set(CMAKE_INSTALL_NAME_TOOL "${cctools-touse}/bin/install_name_tool")
-      set(CMAKE_STRIP "${cctools-touse}/bin/strip")
-      set(CMAKE_LIPO "${cctools-touse}/bin/lipo")
+      set(CMAKE_LINKER "${llvmPackagesToUse.lld}/bin/ld64.lld")
+      set(CMAKE_AR "${llvmTools}/bin/llvm-ar")
+      set(CMAKE_RANLIB "${llvmTools}/bin/llvm-ranlib")
+      set(CMAKE_NM "${llvmTools}/bin/llvm-nm")
+      set(CMAKE_OBJDUMP "${llvmTools}/bin/llvm-objdump")
+      set(CMAKE_INSTALL_NAME_TOOL "${llvmTools}/bin/llvm-install-name-tool")
+      set(CMAKE_STRIP "${llvmTools}/bin/llvm-strip")
+      set(CMAKE_LIPO "${llvmTools}/bin/llvm-lipo")
+
+      # llvm-ar preserves universal object files as archive members, which
+      # ld64.lld cannot consume. llvm-libtool-darwin creates a proper fat
+      # archive with one thin archive per architecture.
+      foreach(language C CXX OBJC OBJCXX ASM)
+        set(CMAKE_''${language}_ARCHIVE_CREATE "${llvmTools}/bin/llvm-libtool-darwin -static -o <TARGET> <OBJECTS>")
+        set(CMAKE_''${language}_ARCHIVE_APPEND "${llvmTools}/bin/llvm-libtool-darwin -static -o <TARGET> <TARGET> <OBJECTS>")
+        set(CMAKE_''${language}_ARCHIVE_FINISH "")
+      endforeach()
 
       set(CMAKE_C_FLAGS "${c_flags} ''${CMAKE_C_FLAGS}")
       set(CMAKE_OBJC_FLAGS "${c_flags} ''${CMAKE_OBJC_FLAGS}")
@@ -81,6 +99,7 @@ let
 
       set(CMAKE_EXE_LINKER_FLAGS "''${CMAKE_EXE_LINKER_FLAGS} ${linkerflags}")
       set(CMAKE_SHARED_LINKER_FLAGS "''${CMAKE_SHARED_LINKER_FLAGS} ${linkerflags}")
+      set(CMAKE_MODULE_LINKER_FLAGS "''${CMAKE_MODULE_LINKER_FLAGS} ${linkerflags}")
 
       set(CMAKE_OSX_SYSROOT ${macossdk}/)
       set(CMAKE_FIND_ROOT_PATH ${macossdk})
@@ -96,7 +115,7 @@ let
       dualArchitecture = true;
     });
     hosttriple = "universal-apple-darwin";
-    cctoolsport = cctools-touse;
+    extraNativeBuildInputs = [ llvmLipo ];
     inherit llvmPackagesToUse llvmsrc llvmfullversion;
   };
 
@@ -116,6 +135,7 @@ let
       # Add static libc++ linking
       set(CMAKE_EXE_LINKER_FLAGS "''${CMAKE_EXE_LINKER_FLAGS} ${libcpplinkerflags}")
       set(CMAKE_SHARED_LINKER_FLAGS "''${CMAKE_SHARED_LINKER_FLAGS} ${libcpplinkerflags}")
+      set(CMAKE_MODULE_LINKER_FLAGS "''${CMAKE_MODULE_LINKER_FLAGS} ${libcpplinkerflags}")
 
       set(NH_RCODESIGN "${rcodesign}/bin/rcodesign")
       set(NH_DMG_COMMAND "${libdmg-hfsplus}/bin/dmg")
@@ -126,7 +146,6 @@ in
   toolchaintxt_single = createToolchainTxt { dualArchitecture = false; };
   toolchaintxt_dual = createToolchainTxt { dualArchitecture = true; };
   nativeBuildInputs = [
-    lipo-in-path
-  ]
-  ++ lib.optional stdenv.isDarwin [ ld64 ]; # keep ld in PATH, otherwise some strange bug will cause /usr/bin/ld to be called and do an infinite recursion.
+    llvmLipo
+  ];
 }

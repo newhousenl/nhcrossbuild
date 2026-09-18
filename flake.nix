@@ -24,9 +24,9 @@
               allowBroken = true; # nsis-3.11 is broken on Darwin
             };
           };
-          llvmversion = "21";
-          llvmfullversion = "21.1.8";
-          llvmhash = "sha256-pgd8g9Yfvp7abjCCKSmIn1smAROjqtfZaJkaUkBSKW0=";
+          llvmversion = "23";
+          llvmfullversion = "23.1.1";
+          llvmhash = "sha256-iAcWcsfrEk2V9siWaMcUBzSBLcCh7oubhorrKmh/EBg=";
           llvmPackagesToUse = pkgs."llvmPackages_${llvmversion}";
 
           llvmsrc = pkgs.fetchFromGitHub {

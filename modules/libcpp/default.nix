@@ -9,7 +9,7 @@
   hosttriple,
   llvmsrc,
   llvmfullversion,
-  cctoolsport ? null,
+  extraNativeBuildInputs ? [ ],
 }:
 stdenv.mkDerivation rec {
 
@@ -46,7 +46,7 @@ stdenv.mkDerivation rec {
     llvmPackagesToUse.lld
     llvmPackagesToUse.bintools-unwrapped
   ]
-  ++ lib.optionals (cctoolsport != null) [ cctoolsport ];
+  ++ extraNativeBuildInputs;
   buildInputs = [ ninja ];
 
   cmakeFlags = [
@@ -117,16 +117,21 @@ stdenv.mkDerivation rec {
     runHook preInstall
     set -x
     ${cmake}/bin/cmake --install ./build
-    
+
     echo "Files in output:"
     find $out -ls
-    
+
     # Fix archive indices
-    ${if ismingw then ''
-      echo "Running ranlib on archives..."
-      find $out -name "*.a" -print0 | xargs -0 -I {} ${llvmPackagesToUse.bintools-unwrapped}/bin/llvm-ranlib {}
-    '' else ""}
-    
+    ${
+      if ismingw then
+        ''
+          echo "Running ranlib on archives..."
+          find $out -name "*.a" -print0 | xargs -0 -I {} ${llvmPackagesToUse.bintools-unwrapped}/bin/llvm-ranlib {}
+        ''
+      else
+        ""
+    }
+
     set +x
     runHook postInstall
   '';

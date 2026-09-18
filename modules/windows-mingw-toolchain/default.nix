@@ -59,7 +59,7 @@ let
       ln -s ${llvmPackagesToUse.bintools-unwrapped}/bin/llvm-nm $out/bin/llvm-nm
       ln -s ${llvmPackagesToUse.bintools-unwrapped}/bin/llvm-nm $out/bin/nm
       
-      ${lib.optionalString stdenv.isDarwin ''
+      ${lib.optionalString stdenv.hostPlatform.isDarwin ''
       ln -s ${llvmPackagesToUse.lld}/bin/ld.lld $out/bin/ld.lld
 
       # Create ld wrapper for MinGW cross-compilation.
@@ -134,7 +134,7 @@ let
       # Ensure wrapped tools are used and found
       export PATH="${wrapped-clang-basic}/bin:$PATH"
       
-      ${lib.optionalString stdenv.isDarwin ''
+      ${lib.optionalString stdenv.hostPlatform.isDarwin ''
       # Darwin-only: pre-cache lt_cv_sys_global_symbol_pipe so configure's libtool
       # nm-pipe test is skipped.  The test compiles + links a full Windows PE binary
       # to verify the pipe, but that link step fails on macOS (no CRT/startup libs
@@ -161,7 +161,7 @@ let
         RANLIB=${wrapped-clang-basic}/bin/llvm-ranlib \
         DLLTOOL=${wrapped-clang-basic}/bin/llvm-dlltool \
         NM=${wrapped-clang-basic}/bin/llvm-nm \
-        ${lib.optionalString stdenv.isDarwin "LD=${wrapped-clang-basic}/bin/ld"} \
+        ${lib.optionalString stdenv.hostPlatform.isDarwin "LD=${wrapped-clang-basic}/bin/ld"} \
       "
 
       # 2. Build CRT (C Runtime)
@@ -180,7 +180,7 @@ let
       make install
       cd ..
 
-      ${lib.optionalString (stdenv.isDarwin && target == "aarch64") ''
+      ${lib.optionalString (stdenv.hostPlatform.isDarwin && target == "aarch64") ''
       # AArch64 bootstrap: provide __chkstk in libmingw32.a
       #
       # On x86/x64, the mingw-w64 CRT's dll_dependency.S provides __chkstk and

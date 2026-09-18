@@ -65,10 +65,7 @@ See the [example/README.md](example/README.md) for detailed instructions on how 
 
 This build system leverages several 3rd party projects to enable cross-platform functionality:
 
-- **LLVM-project**: Provide the Clang compiler, LLD linker, and libc++ library.
-- **tpoechtrager's macOS Tools**:
-  - **[cctools-port](https://github.com/tpoechtrager/cctools-port)**: Port of Apple cctools and ld64.
-  - **[apple-libtapi](https://github.com/tpoechtrager/apple-libtapi)**: Port of Apple's TAPI library.
+- **LLVM-project**: Provides Clang, libc++, compiler-rt, LLD's Mach-O linker, and LLVM's Darwin binary utilities.
 - **Windows Support**:
   - **MinGW-w64**: Headers and runtime for Windows development.
 - **Linux Support**:
