@@ -258,13 +258,13 @@ let
     set(CMAKE_RC_COMPILER "${wrapped-clang-basic}/bin/llvm-rc")
 
     set(NH_C_CXX_FLAGS "-target ${targetparams.targettriple} -resource-dir ${resourceDir} -fno-omit-frame-pointer -fms-extensions ${targetparams.targetc_cppflags} -gcodeview")
-    set(CMAKE_C_FLAGS "''${NH_C_CXX_FLAGS} ''${CMAKE_C_FLAGS}")
-    set(CMAKE_RC_FLAGS "''${NH_C_CXX_FLAGS} ''${CMAKE_RC_FLAGS}")
-    set(CMAKE_CXX_FLAGS "''${NH_C_CXX_FLAGS}${extraCxxFlags} ''${CMAKE_CXX_FLAGS}")
+    set(CMAKE_C_FLAGS_INIT "''${NH_C_CXX_FLAGS}")
+    set(CMAKE_RC_FLAGS_INIT "''${NH_C_CXX_FLAGS}")
+    set(CMAKE_CXX_FLAGS_INIT "''${NH_C_CXX_FLAGS}${extraCxxFlags}")
 
     set(NH_LINKER_FLAGS "-fuse-ld=lld --ld-path=${llvmPackagesToUse.lld}/bin/ld.lld --unwindlib=none -Wno-unused-command-line-argument${extraLinkerFlags}${standardLibraryPaths}")
-    set(CMAKE_EXE_LINKER_FLAGS "''${CMAKE_EXE_LINKER_FLAGS} ''${NH_LINKER_FLAGS}")
-    set(CMAKE_SHARED_LINKER_FLAGS "''${CMAKE_SHARED_LINKER_FLAGS} ''${NH_LINKER_FLAGS}")
+    set(CMAKE_EXE_LINKER_FLAGS_INIT "''${NH_LINKER_FLAGS}")
+    set(CMAKE_SHARED_LINKER_FLAGS_INIT "''${NH_LINKER_FLAGS}")
     
     # Disable pkg-config completely, we don't need it for Windows
     set(ENV{PKG_CONFIG_LIBDIR} "")
