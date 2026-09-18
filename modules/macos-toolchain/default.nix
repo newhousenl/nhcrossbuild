@@ -91,15 +91,15 @@ let
         set(CMAKE_''${language}_ARCHIVE_FINISH "")
       endforeach()
 
-      set(CMAKE_C_FLAGS_INIT "${c_flags}")
-      set(CMAKE_OBJC_FLAGS_INIT "${c_flags}")
-      set(CMAKE_CXX_FLAGS_INIT "${c_flags}")
-      set(CMAKE_OBJCXX_FLAGS_INIT "${c_flags}")
-      set(CMAKE_ASM_FLAGS_INIT "${c_flags}")
+      set(CMAKE_C_FLAGS "${c_flags} ''${CMAKE_C_FLAGS}")
+      set(CMAKE_OBJC_FLAGS "${c_flags} ''${CMAKE_OBJC_FLAGS}")
+      set(CMAKE_CXX_FLAGS "${c_flags} ''${CMAKE_CXX_FLAGS}")
+      set(CMAKE_OBJCXX_FLAGS "${c_flags} ''${CMAKE_OBJCXX_FLAGS}")
+      set(CMAKE_ASM_FLAGS "${c_flags} ''${CMAKE_ASM_FLAGS}")
 
-      set(CMAKE_EXE_LINKER_FLAGS_INIT "${linkerflags}")
-      set(CMAKE_SHARED_LINKER_FLAGS_INIT "${linkerflags}")
-      set(CMAKE_MODULE_LINKER_FLAGS_INIT "${linkerflags}")
+      set(CMAKE_EXE_LINKER_FLAGS "''${CMAKE_EXE_LINKER_FLAGS} ${linkerflags}")
+      set(CMAKE_SHARED_LINKER_FLAGS "''${CMAKE_SHARED_LINKER_FLAGS} ${linkerflags}")
+      set(CMAKE_MODULE_LINKER_FLAGS "''${CMAKE_MODULE_LINKER_FLAGS} ${linkerflags}")
 
       set(CMAKE_OSX_SYSROOT ${macossdk}/)
       set(CMAKE_FIND_ROOT_PATH ${macossdk})
@@ -129,13 +129,13 @@ let
       ${cmake-macos-toolchaintxt-without-libcpp { inherit dualArchitecture; }}
 
       # Add C++ standard library flags
-      set(CMAKE_CXX_FLAGS_INIT "${cppflags} ''${CMAKE_CXX_FLAGS_INIT}")
-      set(CMAKE_OBJCXX_FLAGS_INIT "${cppflags} ''${CMAKE_OBJCXX_FLAGS_INIT}")
+      set(CMAKE_CXX_FLAGS "${cppflags} ''${CMAKE_CXX_FLAGS}")
+      set(CMAKE_OBJCXX_FLAGS "${cppflags} ''${CMAKE_OBJCXX_FLAGS}")
 
       # Add static libc++ linking
-      set(CMAKE_EXE_LINKER_FLAGS_INIT "''${CMAKE_EXE_LINKER_FLAGS_INIT} ${libcpplinkerflags}")
-      set(CMAKE_SHARED_LINKER_FLAGS_INIT "''${CMAKE_SHARED_LINKER_FLAGS_INIT} ${libcpplinkerflags}")
-      set(CMAKE_MODULE_LINKER_FLAGS_INIT "''${CMAKE_MODULE_LINKER_FLAGS_INIT} ${libcpplinkerflags}")
+      set(CMAKE_EXE_LINKER_FLAGS "''${CMAKE_EXE_LINKER_FLAGS} ${libcpplinkerflags}")
+      set(CMAKE_SHARED_LINKER_FLAGS "''${CMAKE_SHARED_LINKER_FLAGS} ${libcpplinkerflags}")
+      set(CMAKE_MODULE_LINKER_FLAGS "''${CMAKE_MODULE_LINKER_FLAGS} ${libcpplinkerflags}")
 
       set(NH_RCODESIGN "${rcodesign}/bin/rcodesign")
       set(NH_DMG_COMMAND "${libdmg-hfsplus}/bin/dmg")

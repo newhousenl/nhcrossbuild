@@ -27,11 +27,11 @@ let
     set(CMAKE_RANLIB "${llvmPackagesToUse.bintools-unwrapped}/bin/llvm-ranlib")
     set(CMAKE_STRIP "${llvmPackagesToUse.bintools-unwrapped}/bin/llvm-strip")
 
-    set(CMAKE_C_FLAGS_INIT "${c_and_cppflags}")
-    set(CMAKE_CXX_FLAGS_INIT "${c_and_cppflags} -nostdlib++")
-    set(CMAKE_ASM_FLAGS_INIT "${c_and_cppflags}")
-    set(CMAKE_EXE_LINKER_FLAGS_INIT "${linkerflags}")
-    set(CMAKE_SHARED_LINKER_FLAGS_INIT "${linkerflags}")
+    set(CMAKE_C_FLAGS "${c_and_cppflags} ''${CMAKE_C_FLAGS}")
+    set(CMAKE_CXX_FLAGS "${c_and_cppflags} -nostdlib++ ''${CMAKE_CXX_FLAGS}")
+    set(CMAKE_ASM_FLAGS "${c_and_cppflags} ''${CMAKE_ASM_FLAGS}")
+    set(CMAKE_EXE_LINKER_FLAGS "''${CMAKE_EXE_LINKER_FLAGS} ${linkerflags}")
+    set(CMAKE_SHARED_LINKER_FLAGS "''${CMAKE_SHARED_LINKER_FLAGS} ${linkerflags}")
 
     # Configure pkg-config to use the sysroot
     unset(ENV{PKG_CONFIG_PATH})  # set by nix
@@ -58,8 +58,8 @@ in
 {
   toolchaintxt = ''
     ${cmake-linux-toolchaintxt-without-libcpp}
-    set(CMAKE_EXE_LINKER_FLAGS_INIT "''${CMAKE_EXE_LINKER_FLAGS_INIT} -L ${libcpplinux}/lib -Wl,-Bstatic -lc++ -lc++abi -Wl,-Bdynamic")
-    set(CMAKE_CXX_FLAGS_INIT "-nostdinc++ -isystem ${libcpplinux}/include/c++/v1 ''${CMAKE_CXX_FLAGS_INIT}")
+    set(CMAKE_EXE_LINKER_FLAGS "''${CMAKE_EXE_LINKER_FLAGS}  -L ${libcpplinux}/lib -Wl,-Bstatic -lc++ -lc++abi -Wl,-Bdynamic")
+    set(CMAKE_CXX_FLAGS "-nostdinc++ -isystem ${libcpplinux}/include/c++/v1 ''${CMAKE_CXX_FLAGS}")
   '';
   nativeBuildInputs = [ ];
 }
