@@ -78,20 +78,22 @@
         pkgs.stdenvNoCC.mkDerivation {
           name = "nhcrossbuild";
           phases = [ ];
-          nativeBuildInputs =
+          nativeBuildInputs = 
             with pkgs;
-            nativeBuildInputs
-            ++ [
-              cmake
-              llvmPackagesToUse.clang-tools
-              llvmPackagesToUse.bintools
-              ninja
-              pkg-config
-              bashInteractive # needed for bash shell in vs code
-            ]
-            ++ toolchains_windows_mingw.x86_64.nativeBuildInputs
-            ++ toolchain_macos.nativeBuildInputs
-            ++ toolchain_linux.nativeBuildInputs;
+            lib.flatten [
+              nativeBuildInputs
+              [
+                cmake
+                llvmPackagesToUse.clang-tools
+                llvmPackagesToUse.bintools
+                ninja
+                pkg-config
+                bashInteractive # needed for bash shell in vs code
+              ]
+              toolchains_windows_mingw.x86_64.nativeBuildInputs
+              toolchain_macos.nativeBuildInputs
+              toolchain_linux.nativeBuildInputs
+            ];
 
           toolchainfile_macos_single = pkgs.writeText "mactoolchain_single.cmake" (
             toolchain_macos.toolchaintxt_single + extraToolchainContent
