@@ -124,6 +124,13 @@ let
     let
       cppflags = "-nostdinc++ -isystem ${libcppmacos}/include/c++/v1";
       libcpplinkerflags = "-nostdlib++ -Wl,-force_load,${libcppmacos}/lib/libc++.a -Wl,-force_load,${libcppmacos}/lib/libc++abi.a -Wl,-force_load,${libcppmacos}/lib/libunwind.a";
+      # ld64.lld can emit duplicate arm64 unwind entries when an object has an empty __text section.
+      # A zero-encoding entry can shadow a real entry and prevent C++ exceptions from being caught.
+      # Dead stripping removes the empty section and its spurious unwind entry.
+      arm64DeadStripFlag =
+        if dualArchitecture then "-Xarch_arm64 -Wl,-dead_strip"
+        else if stdenv.hostPlatform.isAarch64 then "-Wl,-dead_strip"
+        else "";
     in
     ''
       ${cmake-macos-toolchaintxt-without-libcpp { inherit dualArchitecture; }}
@@ -132,10 +139,10 @@ let
       set(CMAKE_CXX_FLAGS "${cppflags} ''${CMAKE_CXX_FLAGS}")
       set(CMAKE_OBJCXX_FLAGS "${cppflags} ''${CMAKE_OBJCXX_FLAGS}")
 
-      # Add static libc++ linking
-      set(CMAKE_EXE_LINKER_FLAGS "''${CMAKE_EXE_LINKER_FLAGS} ${libcpplinkerflags}")
-      set(CMAKE_SHARED_LINKER_FLAGS "''${CMAKE_SHARED_LINKER_FLAGS} ${libcpplinkerflags}")
-      set(CMAKE_MODULE_LINKER_FLAGS "''${CMAKE_MODULE_LINKER_FLAGS} ${libcpplinkerflags}")
+      # Add static libc++ linking and remove empty arm64 unwind entries.
+      set(CMAKE_EXE_LINKER_FLAGS "''${CMAKE_EXE_LINKER_FLAGS} ${libcpplinkerflags} ${arm64DeadStripFlag}")
+      set(CMAKE_SHARED_LINKER_FLAGS "''${CMAKE_SHARED_LINKER_FLAGS} ${libcpplinkerflags} ${arm64DeadStripFlag}")
+      set(CMAKE_MODULE_LINKER_FLAGS "''${CMAKE_MODULE_LINKER_FLAGS} ${libcpplinkerflags} ${arm64DeadStripFlag}")
 
       set(NH_RCODESIGN "${rcodesign}/bin/rcodesign")
       set(NH_DMG_COMMAND "${libdmg-hfsplus}/bin/dmg")
