@@ -124,6 +124,7 @@ let
     let
       cppflags = "-nostdinc++ -isystem ${libcppmacos}/include/c++/v1";
       libcpplinkerflags = "-nostdlib++ -Wl,-force_load,${libcppmacos}/lib/libc++.a -Wl,-force_load,${libcppmacos}/lib/libc++abi.a -Wl,-force_load,${libcppmacos}/lib/libunwind.a";
+      # https://www.mail-archive.com/llvm-bugs@lists.llvm.org/msg101987.html
       # ld64.lld can emit duplicate arm64 unwind entries when an object has an empty __text section.
       # A zero-encoding entry can shadow a real entry and prevent C++ exceptions from being caught.
       # Dead stripping removes the empty section and its spurious unwind entry.
