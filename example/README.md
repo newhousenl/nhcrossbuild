@@ -6,7 +6,7 @@ This is a simple cross-platform GUI application using [wxWidgets](https://www.wx
 
 - [main.cpp](main.cpp): A minimal wxWidgets application that displays a "Hello World" window.
 - [CMakeLists.txt](CMakeLists.txt): The CMake project file. It uses `FetchContent` to download and build wxWidgets from source as part of the build process.
-- [build.sh](build.sh): A script to build the application for all supported platforms (Linux, macOS, Windows x86_64, and Windows ARM64).
+- [build.sh](build.sh): A script to build the application for all supported platforms (Linux with Debian 10 and Debian 11 sysroots, macOS, Windows x86_64, and Windows ARM64).
 - [run_on_nix.sh](run_on_nix.sh): A helper script to run the generated Linux binary on a Nix-based system using a [FHS environment](https://nixos.wiki/wiki/FHS_Environments). Not needed on other Linux distributions.
 
 ## Building the Example
@@ -27,13 +27,13 @@ The build process must be performed within the Nix development environment provi
     ./build.sh
     ```
 
-The script will invoke CMake for each target platform, setting -DCMAKE_TOOLCHAIN_FILE for the target platform. The resulting binaries and bundles will be placed into the `assets/` directory.
+The script will invoke CMake for each target platform, setting -DCMAKE_TOOLCHAIN_FILE for the target platform. The resulting binaries and bundles will be placed into the `assets/` directory. The Debian 10 Linux binary is in `assets/linux/`, and the Debian 11 binary is in `assets/linux-deb11/`.
 
 ## Running the Application
 
 ### Linux
 
-The resulting linux binary can be run directly on most linux distributions. Running on nixos requires a wrapper (see run_on_nix.sh).
+The resulting Linux binaries can be run directly on compatible Linux distributions. Running the Debian 10 build on NixOS requires a wrapper (see run_on_nix.sh).
 
 ### macOS
 

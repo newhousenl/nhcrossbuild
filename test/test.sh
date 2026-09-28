@@ -318,7 +318,8 @@ test_toolchain() {
 }
 
 # Run tests
-test_toolchain "Linux" "$toolchainfile_linux"
+test_toolchain "Linux_Deb10" "$toolchainfile_linux_deb10"
+test_toolchain "Linux_Deb11" "$toolchainfile_linux_deb11"
 test_toolchain "MacOS_Dual" "$toolchainfile_macos_dual"
 test_toolchain "Windows_MinGW_x86_64" "$toolchainfile_windows_mingw_x86_64"
 test_toolchain "Windows_MinGW_ARM64" "$toolchainfile_windows_mingw_aarch64"

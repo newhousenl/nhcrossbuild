@@ -8,7 +8,7 @@ On macOS the c++ standard library is a dylib, its version is tied to the target 
 
 On Linux, distributing binary applications is challenging: glibc does not support static linking, but dynamically linking against the system's glibc makes the executable incompatible with older linux distributions. Statically linking musl is an option for CLI tools, but not for GUI applications because we must dynamically link against GTK and other libraries which themselves depend on glibc. The usual advise is to 'build your app on an old linux distribution', but this is cumbersome. It also limits us to older compiler and c++ std library versions, lacking support for modern c++ features.
 
-This project solves all these problems and provides a Nix-based development environment that simplifies cross-compiling for various platforms. For all platforms we have a modern clang compiler and we statically link the same modern version of libc++. For linux, a sysroot is built from the debian 10 archives, providing the libraries our application is dynamically linked against.
+This project solves all these problems and provides a Nix-based development environment that simplifies cross-compiling for various platforms. For all platforms we have a modern clang compiler and we statically link the same modern version of libc++. For Linux, sysroots built from the Debian 10 and Debian 11 archives provide the libraries our application is dynamically linked against.
 
 By using nix we can build for all 3 platforms from any of them. You only need to pass the -DCMAKE_TOOLCHAIN_FILE option to CMake to target a specific platform.
 
@@ -38,9 +38,10 @@ cmake -DCMAKE_TOOLCHAIN_FILE=$toolchainfile_xxx ..
 ## Supported Platforms
 
 The build system can produce:
-- **Linux**: x86_64 binary, linked against glibc version 2.28. This will run in modern glibc-based Linux distributions (Debian 10, fedora 34, Ubuntu 20.04, etc.)
+- **Linux**: x86_64 binaries targeting Debian 10 (glibc 2.28) or Debian 11 (glibc 2.31). Both toolchain files are available in the default development shell. Choose the oldest Debian release you need to support.
 ```bash
-cmake -DCMAKE_TOOLCHAIN_FILE=$toolchainfile_linux ...
+cmake -DCMAKE_TOOLCHAIN_FILE=$toolchainfile_linux_deb10 ...
+cmake -DCMAKE_TOOLCHAIN_FILE=$toolchainfile_linux_deb11 ...
 ```
 - **macOS**: Fat bundle (Universal binaries), built against the macOS 10.15 SDK.
 ```bash
@@ -69,7 +70,7 @@ This build system leverages several 3rd party projects to enable cross-platform 
 - **Windows Support**:
   - **MinGW-w64**: Headers and runtime for Windows development.
 - **Linux Support**:
-  - **Debian 10 (Buster)**: Used for the base Linux sysroot to ensure compatibility.
+  - **Debian 10 (Buster) and Debian 11 (Bullseye)**: Provide the Linux sysroots.
 - **macOS SDK**:
   - **[joseluisq/macosx-sdks](https://github.com/joseluisq/macosx-sdks)**: Provides the macOS SDK for cross-compilation.
 - **Other Utilities**:

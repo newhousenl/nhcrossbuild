@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [[ -z $toolchainfile_linux ]]; then
+if [[ -z ${toolchainfile_linux_deb10:-} || -z ${toolchainfile_linux_deb11:-} ]]; then
     echo "This build script must be run in the nix development shell, which makes the toolchain files available as environment variables."
     echo "  cd nhcrossbuild"
     echo "  nix develop"
@@ -32,7 +32,8 @@ build() {
     echo "==> Done: $platform"
 }
 
-build linux        "$toolchainfile_linux"
+build linux        "$toolchainfile_linux_deb10"
+build linux-deb11  "$toolchainfile_linux_deb11"
 build mac          "$toolchainfile_macos_dual"
 build winx64       "$toolchainfile_windows_mingw_x86_64"
 build winarm       "$toolchainfile_windows_mingw_aarch64"

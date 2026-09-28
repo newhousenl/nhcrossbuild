@@ -11,7 +11,6 @@
       makeDevShell =
         {
           system,
-          debianrelease ? 10,
           arch ? "amd64",
           extraToolchainContent ? "",
           nativeBuildInputs ? [ ],
@@ -36,15 +35,27 @@
             hash = llvmhash;
           };
 
-          toolchain_linux = pkgs.callPackage ./modules/linux-deb-toolchain/default.nix {
-            inherit
-              llvmPackagesToUse
-              llvmversion
-              llvmsrc
-              llvmfullversion
-              ;
-            debianversion = debianrelease;
-            inherit arch;
+          toolchains_linux = {
+            deb10 = pkgs.callPackage ./modules/linux-deb-toolchain/default.nix {
+              inherit
+                llvmPackagesToUse
+                llvmversion
+                llvmsrc
+                llvmfullversion
+                arch
+                ;
+              debianversion = 10;
+            };
+            deb11 = pkgs.callPackage ./modules/linux-deb-toolchain/default.nix {
+              inherit
+                llvmPackagesToUse
+                llvmversion
+                llvmsrc
+                llvmfullversion
+                arch
+                ;
+              debianversion = 11;
+            };
           };
           toolchain_macos = pkgs.callPackage ./modules/macos-toolchain/default.nix {
             inherit
@@ -92,7 +103,8 @@
               ]
               toolchains_windows_mingw.x86_64.nativeBuildInputs
               toolchain_macos.nativeBuildInputs
-              toolchain_linux.nativeBuildInputs
+              toolchains_linux.deb10.nativeBuildInputs
+              toolchains_linux.deb11.nativeBuildInputs
             ];
 
           toolchainfile_macos_single = pkgs.writeText "mactoolchain_single.cmake" (
@@ -101,8 +113,11 @@
           toolchainfile_macos_dual = pkgs.writeText "mactoolchain_dual.cmake" (
             toolchain_macos.toolchaintxt_dual + extraToolchainContent
           );
-          toolchainfile_linux = pkgs.writeText "linuxtoolchain.cmake" (
-            toolchain_linux.toolchaintxt + extraToolchainContent
+          toolchainfile_linux_deb10 = pkgs.writeText "linuxtoolchain_deb10.cmake" (
+            toolchains_linux.deb10.toolchaintxt + extraToolchainContent
+          );
+          toolchainfile_linux_deb11 = pkgs.writeText "linuxtoolchain_deb11.cmake" (
+            toolchains_linux.deb11.toolchaintxt + extraToolchainContent
           );
           toolchainfile_windows_mingw_x86_64 = pkgs.writeText "windows_mingw_x86_64toolchain.cmake" (
             toolchains_windows_mingw.x86_64.toolchaintxt + extraToolchainContent
@@ -135,12 +150,6 @@
           (system: {
             default = makeDevShell {
               inherit system;
-              debianrelease = 10;
-              arch = "amd64";
-            };
-            debian11 = makeDevShell {
-              inherit system;
-              debianrelease = 11;
               arch = "amd64";
             };
           });
