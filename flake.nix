@@ -23,28 +23,11 @@
               allowBroken = true; # nsis-3.11 is broken on Darwin
             };
             overlays = [
-              (
-                _final: prev:
-                prev.lib.optionalAttrs prev.stdenv.hostPlatform.isDarwin {
-                  # Also patch LLVM used internally to build the compiler runtimes.
-                  "llvmPackages_${llvmversion}" = prev."llvmPackages_${llvmversion}".overrideScope (
-                    _llvmFinal: llvmPrev: {
-                      libllvm = llvmPrev.libllvm.overrideAttrs (old: {
-                        postPatch = (old.postPatch or "") + ''
-                          # This test needs Apple's codesign, which is unavailable in the
-                          # Nix sandbox. Keep the rest of the LLVM test suite enabled.
-                          rm test/tools/dsymutil/codesign.test
-                        '';
-                      });
-                    }
-                  );
-                }
-              )
             ];
           };
           llvmversion = "23";
-          llvmfullversion = "23.1.1";
-          llvmhash = "sha256-iAcWcsfrEk2V9siWaMcUBzSBLcCh7oubhorrKmh/EBg=";
+          llvmfullversion = "23.1.3";
+          llvmhash = "sha256-+e5YvYEbCvvEQbLVIQP5hwPp4tEk6EB270bSEMKv0t4=";
           llvmPackagesToUse = pkgs."llvmPackages_${llvmversion}";
 
           llvmsrc = pkgs.fetchFromGitHub {

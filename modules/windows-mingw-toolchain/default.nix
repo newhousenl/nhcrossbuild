@@ -192,7 +192,8 @@ let
       # the LLVM compiler-rt reference implementation and add it directly to
       # libmingw32.a.  This mirrors what dll_dependency.S does for x86/x64.
       echo "Adding AArch64 __chkstk to libmingw32.a..."
-      cat > /tmp/chkstk_aarch64.S << '___CHKSTK_EOF___'
+      # Keep scratch files in Nix's writable, build-specific temporary directory.
+      cat > "$TMPDIR/chkstk_aarch64.S" << '___CHKSTK_EOF___'
       // AArch64 __chkstk - from LLVM compiler-rt (Apache-2.0 WITH LLVM-exception)
       // Input: x15 = allocation size in 16-byte units
       // Probes each stack page from SP downward.  Clobbers x16, x17.
@@ -209,8 +210,8 @@ let
           b.gt   1b
           ret
       ___CHKSTK_EOF___
-      ${wrapped-clang-basic}/bin/clang -c /tmp/chkstk_aarch64.S -o /tmp/chkstk_aarch64.o
-      ${wrapped-clang-basic}/bin/llvm-ar rcs $out/${targetparams.targettriple}/lib/libmingw32.a /tmp/chkstk_aarch64.o
+      ${wrapped-clang-basic}/bin/clang -c "$TMPDIR/chkstk_aarch64.S" -o "$TMPDIR/chkstk_aarch64.o"
+      ${wrapped-clang-basic}/bin/llvm-ar rcs $out/${targetparams.targettriple}/lib/libmingw32.a "$TMPDIR/chkstk_aarch64.o"
       ''}
 
       # 3. Build winpthreads
