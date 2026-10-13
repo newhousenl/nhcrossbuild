@@ -128,10 +128,10 @@
             toolchains_windows_mingw.aarch64.toolchaintxt + extraToolchainContent
           );
           #inherit windowssdk;
-          shellHook = ''
-            echo "Create a gc root (to prevent garbage collection of the toolchain) with the following command:"
-            echo "nix build .#devShells.${system}.default.inputDerivation -o ./gcroot"
-          '';
+          # shellHook = ''
+          #   echo "Create a gc root (to prevent garbage collection of the toolchain) with the following command:"
+          #   echo "nix build .#devShells.${system}.default.inputDerivation -o ./gcroot"
+          # '';
           #gperftools = pkgs.gperftools;
           #pprof = pkgs.pprof;
         };
