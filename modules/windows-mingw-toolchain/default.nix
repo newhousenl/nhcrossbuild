@@ -300,6 +300,10 @@ let
   clang_with_compilerrt = stdenv.mkDerivation {
     name = "clang-with-compilerrt";
     dontUnpack = true;
+    # Don't let the host's strip touch the COFF archives: on Darwin, cctools
+    # rewrites them as BSD archives whose "/" and "//" symbol-table members
+    # then fail in lld with --whole-archive ("Could not parse /").
+    dontStrip = true;
     installPhase = ''
       mkdir -p $out/lib/clang/${llvmversion}/lib/${normalizedtriple}
       mkdir -p $out/lib/clang/${llvmversion}/include
