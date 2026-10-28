@@ -15,7 +15,8 @@ let
     inherit debianversion arch;
   };
   c_and_cppflags = "-target x86_64-pc-linux-gnu -resource-dir ${llvmPackagesToUse.clang-unwrapped.lib}/lib/clang/${llvmversion}";
-  linkerflags = "-fuse-ld=lld --ld-path=${llvmPackagesToUse.lld}/bin/ld.lld -Wl,-dynamic-linker -Wl,/lib64/ld-linux-x86-64.so.2 -L ${llvmPackagesToUse.clang-unwrapped.lib}/lib -L ${debsysroot}/usr/lib/x86_64-linux-gnu";
+  # --build-id linker flag improves lldb performance when debugging the binary.
+  linkerflags = "-fuse-ld=lld --ld-path=${llvmPackagesToUse.lld}/bin/ld.lld -Wl,--build-id -Wl,-dynamic-linker -Wl,/lib64/ld-linux-x86-64.so.2 -L ${llvmPackagesToUse.clang-unwrapped.lib}/lib -L ${debsysroot}/usr/lib/x86_64-linux-gnu";
   cmake-linux-toolchaintxt-without-libcpp = ''
     set(CMAKE_SYSTEM_NAME Linux)
     set(CMAKE_SYSTEM_PROCESSOR x86_64)
